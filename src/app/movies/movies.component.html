@@ -2,7 +2,7 @@
 <div class="container">
   <h3>Popular Movies</h3>
   <div class="row" *ngIf="popular">
-    <div *ngFor="let movie of popular;let i=index" class="col-md-3 col-sm-6 col-12" style="width: 18rem;">
+    <div *ngFor="let movie of popular;let i=index" class="col-md-3 col-sm-6 col-12 wrap">
       <app-movie [movie]="movie" *ngIf="i < 8"></app-movie>
     </div>
   </div>
@@ -11,25 +11,25 @@
 <div class="container">
   <h3>In Theaters</h3>
   <div class="row" *ngIf="theaters">
-    <div *ngFor="let movie of theaters;let i=index" class="col-md-3 col-sm-6 col-12" style="width: 18rem;">
-      <app-movie [movie]="movie" *ngIf="i < 4"></app-movie>
+        <div *ngFor="let movie of theaters;let i=index" class="col-md-3 col-sm-6 col-12 wrap">
+            <app-movie [movie]="movie" *ngIf="i < 4"></app-movie>
+          </div>
     </div>
-  </div>
 </div>
 
 <div class="container">
   <h3>Kids movies</h3>
   <div class="row" *ngIf="kids">
-    <div *ngFor="let movie of kids;let i=index" class="col-md-3 col-sm-6 col-12" style="width: 18rem;">
+    <div *ngFor="let movie of kids;let i=index" class="col-md-3 col-sm-6 col-12 wrap" >
       <app-movie [movie]="movie" *ngIf="i < 4"></app-movie>
     </div>
   </div>
 </div>
 
 <div class="container">
-  <h3>Best Drama 2018</h3>
+  <h3>Best Drama {{year}}</h3>
   <div class="row" *ngIf="drama">
-    <div *ngFor="let movie of drama;let i=index" class="col-md-3 col-sm-6 col-12" style="width: 18rem;">
+    <div *ngFor="let movie of drama;let i=index" class="col-md-3 col-sm-6 col-12 wrap">
       <app-movie [movie]="movie" *ngIf="i < 4"></app-movie>
     </div>
   </div>

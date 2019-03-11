@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MoviesService } from '../services/movies.service';
+
 
 @Component({
   selector: 'app-navigation',
@@ -9,11 +11,18 @@ export class NavigationComponent implements OnInit {
 
   title: string;
 
-  constructor() {
+  constructor(private moviesService: MoviesService) {
     this.title = 'Movie Finder';
    }
 
   ngOnInit() {
   }
+
+  search(query) {
+    this.moviesService.findMovies(query.search).subscribe(data => {
+      console.log(data);
+    });
+  }
+
 
 }

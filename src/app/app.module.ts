@@ -7,18 +7,22 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MoviesService } from './services/movies.service';
 import { MovieComponent } from './movie/movie.component';
+import { MovieDetailsComponent } from './movie-details/movie-details.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     MoviesComponent,
     NavigationComponent,
-    MovieComponent
+    MovieComponent,
+    MovieDetailsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [MoviesService],
   bootstrap: [AppComponent]

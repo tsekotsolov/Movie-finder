@@ -15,15 +15,18 @@ export class MoviesComponent implements OnInit {
   theaters: Array<Movie>;
   kids: Array<Movie>;
   drama: Array<Movie>;
+  year = new Date().getFullYear();
 
   constructor(private moviesService: MoviesService) { }
 
   ngOnInit() {
+
+
     this.moviesService
       .getPopularMovies()
       .subscribe(data => {
         this.popular = data.results;
-      });
+       });
 
     this.moviesService
       .getTheatersMovies()

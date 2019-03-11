@@ -1,5 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ElementRef, ViewChild } from '@angular/core';
 import Movie from '../../models/movie.model';
+import {imageBaseUrl} from '../services/api.constants';
 
 @Component({
   selector: 'app-movie',
@@ -8,13 +9,26 @@ import Movie from '../../models/movie.model';
 })
 export class MovieComponent implements OnInit {
 
-@Input() movie: Movie;
+  @ViewChild('width') width: ElementRef;
+  @Input() movie: Movie;
 
-  constructor() {
-  }
+  private height: string;
+  private imageUrl: string;
+
+  constructor() {}
 
   ngOnInit() {
-    this.movie.title = this.movie.title .slice(0, 15);
+    this.movie.title = this.movie.title.slice(0, 15);
+    const elementWidth = this.width.nativeElement.offsetWidth;
+    this.height = `${elementWidth * 1.5}px`;
+    this.movie.poster_path
+      ? this.imageUrl = imageBaseUrl + this.movie.poster_path
+      : this.imageUrl = '../../assets/images/noimage.jpg';
+  }
+
+  onResize() {
+    const currentWidth = this.width.nativeElement.offsetWidth;
+    this.height = `${currentWidth * 1.5}px`;
   }
 
 }
