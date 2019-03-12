@@ -9,6 +9,8 @@ import { MoviesService } from './services/movies.service';
 import { MovieComponent } from './movie/movie.component';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import { FormsModule } from '@angular/forms';
+import { SearchService } from '../app/services/search.service';
+import { SearchScreenComponent } from './search-screen/search-screen.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,8 @@ import { FormsModule } from '@angular/forms';
     MoviesComponent,
     NavigationComponent,
     MovieComponent,
-    MovieDetailsComponent
+    MovieDetailsComponent,
+    SearchScreenComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +27,10 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     FormsModule
   ],
-  providers: [MoviesService],
+  providers: [
+    MoviesService,
+    SearchService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

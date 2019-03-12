@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MoviesService } from '../services/movies.service';
 import Movie from '../../models/movie.model';
+import { SearchService } from '../services/search.service';
 
 @Component({
   selector: 'app-movies',
@@ -8,19 +9,16 @@ import Movie from '../../models/movie.model';
   styleUrls: ['./movies.component.scss']
 })
 
-
 export class MoviesComponent implements OnInit {
 
   popular: Array<Movie>;
   theaters: Array<Movie>;
   kids: Array<Movie>;
   drama: Array<Movie>;
-  year = new Date().getFullYear();
 
-  constructor(private moviesService: MoviesService) { }
+  constructor(private moviesService: MoviesService, private searchService: SearchService) { }
 
   ngOnInit() {
-
 
     this.moviesService
       .getPopularMovies()

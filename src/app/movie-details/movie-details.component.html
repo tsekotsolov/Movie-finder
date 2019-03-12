@@ -1,12 +1,12 @@
 <div *ngIf='movie' class="movie-wrapper container">
   <div class="row">
     <div class="col-md-6 col-12">
-      <img class="poster" src="http://image.tmdb.org/t/p/w500/{{movie.poster_path}}" />
+      <img class="poster" src="{{imageUrl}}" />
     </div>
     <div class="col-md-6 col-12">
       <ul class="list-group">
         <li class="list-group-item">Title: <span>{{movie.title}} </span></li>
-        <li class="list-group-item">Genres: <span *ngFor="let genre of movie.genres">{{genre.name}} </span></li>
+        <li class="list-group-item">Genres: <span>{{genres}} </span></li>
         <li class="list-group-item">Release Date: {{movie.release_date}}</li>
         <li class="list-group-item">{{movie.overview}}</li>
       </ul>

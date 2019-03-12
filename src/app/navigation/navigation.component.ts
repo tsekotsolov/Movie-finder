@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { MoviesService } from '../services/movies.service';
+import { SearchService } from '../services/search.service';
+import { Router } from '@angular/router';
+
 
 
 @Component({
@@ -7,22 +9,25 @@ import { MoviesService } from '../services/movies.service';
   templateUrl: './navigation.component.html',
   styleUrls: ['./navigation.component.scss']
 })
-export class NavigationComponent implements OnInit {
+export class NavigationComponent {
 
   title: string;
+  query: string;
 
-  constructor(private moviesService: MoviesService) {
+  constructor( private searchService: SearchService, private router: Router) {
     this.title = 'Movie Finder';
    }
 
-  ngOnInit() {
+   redirectTo(uri: string) {
+    this.router.navigateByUrl('/', {skipLocationChange: true}).then(() =>
+    this.router.navigate([uri])); }
+
+  search() {
+    this.searchService.passQuery(this.query);
+    this.query = '';
+    this.router.navigate(['search']);
+    if (this.router.url === '/search') {
+      this.redirectTo('search');
+    }
   }
-
-  search(query) {
-    this.moviesService.findMovies(query.search).subscribe(data => {
-      console.log(data);
-    });
-  }
-
-
 }

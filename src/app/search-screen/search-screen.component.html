@@ -1,0 +1,9 @@
+<div class="container" *ngIf="searchItems">
+  <h3>Searches</h3>
+  <div class="row" >
+    <div *ngFor="let movie of searchItems;let i=index" class="col-md-3 col-sm-6 col-12 wrap">
+      <app-movie [movie]="movie"></app-movie>
+    </div>
+  </div>
+</div>
+
