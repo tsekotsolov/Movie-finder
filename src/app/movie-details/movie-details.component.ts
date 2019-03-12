@@ -23,7 +23,6 @@ export class MovieDetailsComponent implements OnInit {
     this.route.params.subscribe(params => {
       const id: string = params.id;
       this.moviesService.getMovie(id).subscribe(movie => {
-        console.log(movie);
         this.genres = movie.genres.map((genre: any) => genre.name).join(', ');
         this.movie = movie;
         movie.poster_path
