@@ -1,6 +1,31 @@
-.container{
+.wrapper {
   margin-top: 5rem;
-  .wrap{
-    width: 18rem;
+
+  .container {
+    margin-top: 1rem;
+    position: relative;
+
+    .left,
+    .right {
+      position: absolute;
+      top: 50%;
+      border: solid white;
+      border-width: 0 6px 6px 0;
+      display: inline-block;
+      padding: 6px;
+      cursor: pointer;
+    }
+
+    .right {
+      left: 100%;
+      transform: rotate(-45deg);
+      -webkit-transform: rotate(-45deg);
+    }
+
+    .left {
+      left: -1%;
+      transform: rotate(135deg);
+      -webkit-transform: rotate(135deg);
+    }
   }
 }

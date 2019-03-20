@@ -1,45 +1,48 @@
-<div class="container">
-  <h3>Popular Movies</h3>
-  <div class="row" *ngIf="popular">
-    <drag-scroll class="container" #nav>
-      <div *ngFor="let movie of popular;let i=index" drag-scroll-item class="col-md-3 col-sm-6 col-12 wrap">
-        <app-movie [movie]="movie"></app-movie>
-      </div>
-    </drag-scroll>
-    <button (click)="moveLeft()">Left</button>
-    <button (click)="moveRight()">Right</button>
+<div class='wrapper'>
+  <div class="container">
+    <h3>Popular Movies</h3>
+    <div class="row" *ngIf="popular">
+      <drag-scroll class="container" #nav>
+        <div *ngFor="let movie of popular;let i=index" drag-scroll-item class="col-md-3 col-sm-6 col-12">
+          <app-movie [movie]="movie"></app-movie>
+        </div>
+      </drag-scroll>
+      <i class="arrow right" (click)="moveRight()"></i>
+      <i class="arrow left" (click)="moveLeft()"></i>
+    </div>
+  </div>
+
+  <div class="container">
+    <h3>In Theaters</h3>
+    <div class="row" *ngIf="theaters">
+      <drag-scroll class="container">
+        <div *ngFor="let movie of theaters;let i=index" drag-scroll-item class="col-md-3 col-sm-6 col-12">
+          <app-movie [movie]="movie"></app-movie>
+        </div>
+      </drag-scroll>
+    </div>
+  </div>
+
+  <div class="container">
+    <h3>Kids movies</h3>
+    <div class="row" *ngIf="kids">
+      <drag-scroll class="container">
+        <div *ngFor="let movie of kids;let i=index" drag-scroll-item class="col-md-3 col-sm-6 col-12">
+          <app-movie [movie]="movie"></app-movie>
+        </div>
+      </drag-scroll>
+    </div>
+  </div>
+
+  <div class="container">
+    <h3>Best Drama {{year}}</h3>
+    <div class="row" *ngIf="drama">
+      <drag-scroll class="container">
+        <div *ngFor="let movie of drama;let i=index" drag-scroll-item class="col-md-3 col-sm-6 col-12">
+          <app-movie [movie]="movie"></app-movie>
+        </div>
+      </drag-scroll>
+    </div>
   </div>
 </div>
 
-<div class="container">
-  <h3>In Theaters</h3>
-  <div class="row" *ngIf="theaters">
-    <drag-scroll class="container">
-      <div *ngFor="let movie of theaters;let i=index" drag-scroll-item class="col-md-3 col-sm-6 col-12 wrap">
-        <app-movie [movie]="movie"></app-movie>
-      </div>
-    </drag-scroll>
-  </div>
-</div>
-
-<div class="container">
-  <h3>Kids movies</h3>
-  <div class="row" *ngIf="kids">
-    <drag-scroll class="container">
-      <div *ngFor="let movie of kids;let i=index" drag-scroll-item class="col-md-3 col-sm-6 col-12 wrap">
-        <app-movie [movie]="movie"></app-movie>
-      </div>
-    </drag-scroll>
-  </div>
-</div>
-
-<div class="container">
-  <h3>Best Drama {{year}}</h3>
-  <div class="row" *ngIf="drama">
-    <drag-scroll class="container">
-      <div *ngFor="let movie of drama;let i=index" drag-scroll-item class="col-md-3 col-sm-6 col-12 wrap">
-        <app-movie [movie]="movie"></app-movie>
-      </div>
-    </drag-scroll>
-  </div>
-</div>
