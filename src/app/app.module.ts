@@ -11,6 +11,8 @@ import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import { FormsModule } from '@angular/forms';
 import { SearchService } from '../app/services/search.service';
 import { SearchScreenComponent } from './search-screen/search-screen.component';
+import { DragScrollModule } from 'ngx-drag-scroll';
+
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { SearchScreenComponent } from './search-screen/search-screen.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    DragScrollModule
   ],
   providers: [
     MoviesService,

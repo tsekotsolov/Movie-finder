@@ -1,36 +1,45 @@
-
 <div class="container">
   <h3>Popular Movies</h3>
   <div class="row" *ngIf="popular">
-    <div *ngFor="let movie of popular;let i=index" class="col-md-3 col-sm-6 col-12 wrap">
-      <app-movie [movie]="movie" *ngIf="i < 8"></app-movie>
-    </div>
+    <drag-scroll class="container" #nav>
+      <div *ngFor="let movie of popular;let i=index" drag-scroll-item class="col-md-3 col-sm-6 col-12 wrap">
+        <app-movie [movie]="movie"></app-movie>
+      </div>
+    </drag-scroll>
+    <button (click)="moveLeft()">Left</button>
+    <button (click)="moveRight()">Right</button>
   </div>
 </div>
 
 <div class="container">
   <h3>In Theaters</h3>
   <div class="row" *ngIf="theaters">
-        <div *ngFor="let movie of theaters;let i=index" class="col-md-3 col-sm-6 col-12 wrap">
-            <app-movie [movie]="movie" *ngIf="i < 4"></app-movie>
-          </div>
-    </div>
+    <drag-scroll class="container">
+      <div *ngFor="let movie of theaters;let i=index" drag-scroll-item class="col-md-3 col-sm-6 col-12 wrap">
+        <app-movie [movie]="movie"></app-movie>
+      </div>
+    </drag-scroll>
+  </div>
 </div>
 
 <div class="container">
   <h3>Kids movies</h3>
   <div class="row" *ngIf="kids">
-    <div *ngFor="let movie of kids;let i=index" class="col-md-3 col-sm-6 col-12 wrap" >
-      <app-movie [movie]="movie" *ngIf="i < 4"></app-movie>
-    </div>
+    <drag-scroll class="container">
+      <div *ngFor="let movie of kids;let i=index" drag-scroll-item class="col-md-3 col-sm-6 col-12 wrap">
+        <app-movie [movie]="movie"></app-movie>
+      </div>
+    </drag-scroll>
   </div>
 </div>
 
 <div class="container">
   <h3>Best Drama {{year}}</h3>
   <div class="row" *ngIf="drama">
-    <div *ngFor="let movie of drama;let i=index" class="col-md-3 col-sm-6 col-12 wrap">
-      <app-movie [movie]="movie" *ngIf="i < 4"></app-movie>
-    </div>
+    <drag-scroll class="container">
+      <div *ngFor="let movie of drama;let i=index" drag-scroll-item class="col-md-3 col-sm-6 col-12 wrap">
+        <app-movie [movie]="movie"></app-movie>
+      </div>
+    </drag-scroll>
   </div>
 </div>

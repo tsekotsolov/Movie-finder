@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MoviesService } from '../services/movies.service';
 import Movie from '../../models/movie.model';
 import { SearchService } from '../services/search.service';
+import { DragScrollComponent } from 'ngx-drag-scroll';
 
 @Component({
   selector: 'app-movies',
@@ -11,10 +12,21 @@ import { SearchService } from '../services/search.service';
 
 export class MoviesComponent implements OnInit {
 
+  @ViewChild('nav', {read: DragScrollComponent}) ds: DragScrollComponent;
+
   popular: Array<Movie>;
   theaters: Array<Movie>;
   kids: Array<Movie>;
   drama: Array<Movie>;
+
+
+  moveLeft() {
+    this.ds.moveLeft();
+  }
+
+  moveRight() {
+    this.ds.moveRight();
+  }
 
   constructor(private moviesService: MoviesService, private searchService: SearchService) { }
 
