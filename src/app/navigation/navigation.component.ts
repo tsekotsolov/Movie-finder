@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { SearchService } from '../services/search.service';
 import { Router } from '@angular/router';
-
 
 
 @Component({

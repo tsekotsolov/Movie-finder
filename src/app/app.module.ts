@@ -11,6 +11,8 @@ import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import { FormsModule } from '@angular/forms';
 import { SearchService } from '../app/services/search.service';
 import { SearchScreenComponent } from './search-screen/search-screen.component';
+import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { SearchScreenComponent } from './search-screen/search-screen.component';
     NavigationComponent,
     MovieComponent,
     MovieDetailsComponent,
-    SearchScreenComponent
+    SearchScreenComponent,
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
