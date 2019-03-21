@@ -15,7 +15,7 @@ export class MovieCategoryComponent implements OnInit {
   @Input() type: string;
   @Input() query: string;
 
-  movies:  Array<Movie>;
+  movies: Array<Movie>;
   getMovies: Observable<any>;
   categoryName: string;
   loading: boolean;
@@ -56,11 +56,11 @@ export class MovieCategoryComponent implements OnInit {
         break;
     }
 
-      this.getMovies.subscribe(data => {
+    this.getMovies.subscribe(data => {
         this.loading = false;
         data.results.length > 0
           ? this.movies = data.results
-          : null
+          : this.movies = null;
       } );
 
   }
