@@ -14,6 +14,7 @@ import { SearchScreenComponent } from './search-screen/search-screen.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { DragScrollModule } from 'ngx-drag-scroll';
+import { MovieCategoryComponent } from './movie-category/movie-category.component';
 
 
 
@@ -26,7 +27,8 @@ import { DragScrollModule } from 'ngx-drag-scroll';
     MovieDetailsComponent,
     SearchScreenComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    MovieCategoryComponent
   ],
   imports: [
     BrowserModule,
