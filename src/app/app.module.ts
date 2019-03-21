@@ -13,6 +13,9 @@ import { SearchService } from '../app/services/search.service';
 import { SearchScreenComponent } from './search-screen/search-screen.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
+import { DragScrollModule } from 'ngx-drag-scroll';
+
+
 
 @NgModule({
   declarations: [
@@ -29,7 +32,8 @@ import { LoginComponent } from './login/login.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    DragScrollModule
   ],
   providers: [
     MoviesService,

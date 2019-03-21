@@ -1,9 +1,12 @@
-<div class="container" *ngIf="searchItems">
+<div class="container">
   <h3>Searches</h3>
-  <div class="row" >
-    <div *ngFor="let movie of searchItems;let i=index" class="col-md-3 col-sm-6 col-12 wrap">
-      <app-movie [movie]="movie"></app-movie>
-    </div>
+  <div class="row" *ngIf="searchItems">
+    <drag-scroll class="container" #nav>
+      <div *ngFor="let movie of searchItems" drag-scroll-item class="col-md-3 col-sm-6 col-12">
+        <app-movie [movie]="movie"></app-movie>
+      </div>
+    </drag-scroll>
+    <i class="arrow right" (click)="moveRight()"></i>
+    <i class="arrow left" (click)="moveLeft()"></i>
   </div>
 </div>
-
