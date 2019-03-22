@@ -6,10 +6,13 @@
         <app-movie [movie]="movie"></app-movie>
       </div>
     </drag-scroll>
-    <i class="arrow right" (click)="moveRight()"></i>
-    <i class="arrow left" (click)="moveLeft()"></i>
+    <div class="circle circle-right" (click)="moveRight()">
+      <i class="arrow right" ></i>
+    </div>
+    <div class="circle circle-left" (click)="moveLeft()">
+      <i class="arrow left"></i>
+    </div>
   </div>
 </div>
 
 <h3 *ngIf="!movies && !loading" class="text-danger error">No results matched your search criteria</h3>
-
