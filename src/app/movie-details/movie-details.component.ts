@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { MoviesService } from '../services/movies.service';
 import MovieDetails from '../../models/movieDetails.model';
-import {imageBaseUrl} from '../services/api.constants';
+import { imageBaseUrl } from '../services/api.constants';
 const image = '../../assets/images/noimage.jpg';
-
 
 @Component({
   selector: 'app-movie-details',
@@ -17,18 +15,14 @@ export class MovieDetailsComponent implements OnInit {
   genres: string;
   imageUrl: string;
 
-  constructor(private route: ActivatedRoute, private moviesService: MoviesService) { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.route.params.subscribe(params => {
-      const id: string = params.id;
-      this.moviesService.getMovie(id).subscribe(movie => {
-        this.genres = movie.genres.map((genre: any) => genre.name).join(', ');
-        this.movie = movie;
-        movie.poster_path
-        ? this.imageUrl = `${imageBaseUrl}${movie.poster_path}`
-        : this.imageUrl = image;
-      });
-    });
+   this.movie = this.route.snapshot.data.movieDetails;
+   console.log(this.movie);
+   this.genres = this.movie.genres.map((genre: any) => genre.name).join(', ');
+   this.movie.poster_path
+   ? this.imageUrl = `${imageBaseUrl}${this.movie.poster_path}`
+   : this.imageUrl = image;
   }
 }

@@ -15,6 +15,7 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { DragScrollModule } from 'ngx-drag-scroll';
 import { MovieCategoryComponent } from './movie-category/movie-category.component';
+import { MovieDetailsResolver } from './services/resolvers/movie-details.resolver';
 
 
 
@@ -39,7 +40,8 @@ import { MovieCategoryComponent } from './movie-category/movie-category.componen
   ],
   providers: [
     MoviesService,
-    SearchService
+    SearchService,
+    MovieDetailsResolver
   ],
   bootstrap: [AppComponent]
 })
