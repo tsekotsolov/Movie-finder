@@ -1,8 +1,10 @@
 import { Component, OnInit, ViewChild, Input } from '@angular/core';
-import { MoviesService } from '../../../services/movies.service';
-import Movie from '../../../../models/movie.model';
-import { DragScrollComponent } from 'ngx-drag-scroll';
 import { Observable } from 'rxjs';
+
+import { DragScrollComponent } from 'ngx-drag-scroll';
+
+import { MoviesService } from '@services';
+import { Movie } from '@models';
 
 @Component({
   selector: 'app-movie-category',
@@ -10,8 +12,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./movie-category.component.scss']
 })
 export class MovieCategoryComponent implements OnInit {
-
-  @ViewChild('nav', {read: DragScrollComponent}) ds: DragScrollComponent;
+  @ViewChild('nav', { read: DragScrollComponent }) ds: DragScrollComponent;
   @Input() type: string;
   @Input() query: string;
 
@@ -20,10 +21,9 @@ export class MovieCategoryComponent implements OnInit {
   categoryName: string;
   loading: boolean;
 
-  constructor(private moviesService: MoviesService) { }
+  constructor(private moviesService: MoviesService) {}
 
   ngOnInit() {
-
     this.loading = true;
 
     switch (this.type) {
@@ -33,22 +33,22 @@ export class MovieCategoryComponent implements OnInit {
         break;
 
       case 'theaters':
-        this.getMovies =  this.moviesService.getTheatersMovies();
+        this.getMovies = this.moviesService.getTheatersMovies();
         this.categoryName = 'In Theaters';
         break;
 
       case 'kids':
-        this.getMovies =  this.moviesService.getKidsMovies();
+        this.getMovies = this.moviesService.getKidsMovies();
         this.categoryName = 'Kids Movies';
         break;
 
       case 'drama':
-        this.getMovies =  this.moviesService.getDramaMovies();
+        this.getMovies = this.moviesService.getDramaMovies();
         this.categoryName = 'Best Drama';
         break;
 
       case 'search':
-        this.getMovies =  this.moviesService.findMovies(this.query);
+        this.getMovies = this.moviesService.findMovies(this.query);
         this.categoryName = 'Search results';
         break;
 
@@ -57,13 +57,12 @@ export class MovieCategoryComponent implements OnInit {
     }
 
     this.getMovies.subscribe(data => {
-        this.loading = false;
-        console.log(data);
-        data.results.length > 0
-          ? this.movies = data.results
-          : this.movies = null;
-      } );
-
+      this.loading = false;
+      console.log(data);
+      data.results.length > 0
+        ? (this.movies = data.results)
+        : (this.movies = null);
+    });
   }
 
   moveLeft() {
@@ -73,5 +72,4 @@ export class MovieCategoryComponent implements OnInit {
   moveRight() {
     this.ds.moveRight();
   }
-
 }

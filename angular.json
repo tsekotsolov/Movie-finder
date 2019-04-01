@@ -63,7 +63,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "movie-finder:build"
+            "browserTarget": "movie-finder:build",
+            "port":4201
           },
           "configurations": {
             "production": {

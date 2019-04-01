@@ -1,4 +1,4 @@
-export default interface Movies {
+export interface Movies {
   page: number;
   results: [];
   total_pages: number;
