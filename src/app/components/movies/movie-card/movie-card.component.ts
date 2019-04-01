@@ -14,17 +14,14 @@ export class MovieCardComponent implements OnInit {
   private height: string;
   private imageUrl: string;
   private isFlipped = false;
+  private overview: string;
 
   constructor() {}
 
   ngOnInit() {
-    if (this.movie.overview.length > 200 ) {
-      // const regex = /.{200}[' ']/gm;
-      // this.movie.overview = regex.exec(this.movie.overview)[0].concat('...');
-      this.movie.overview = this.movie.overview.slice(0, 200);
-      const index = this.movie.overview.lastIndexOf(' ');
-      this.movie.overview = this.movie.overview.slice(0, index).concat('...');
-    }
+    this.movie.overview.length > 200
+      ? this.overview = this.trimOverview(this.movie.overview)
+      : this.overview = this.movie.overview;
 
     const elementWidth = this.width.nativeElement.offsetWidth;
     this.height = `${elementWidth * 1.5}px`;
@@ -40,5 +37,11 @@ export class MovieCardComponent implements OnInit {
 
   toggleFlip() {
     this.isFlipped = !this.isFlipped;
+  }
+
+  trimOverview(overview: string){
+    overview = overview.slice(0, 200);
+    const index = overview.lastIndexOf(' ');
+    return overview.slice(0, index).concat('...');
   }
 }

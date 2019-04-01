@@ -7,7 +7,7 @@
          
               <h6 class="card-title">{{movie.title}}</h6>
               <p class="card-text">{{movie.release_date | date:'mediumDate'}}</p>
-              <p class="card-text card-overview">{{movie.overview}}</p>
+              <p class="card-text card-overview">{{overview}}</p>
               <button routerLink="/movie/{{movie.id}}" class="btn btn-outline-success">Details</button>
           
       </div>
