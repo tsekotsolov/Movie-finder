@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SearchService } from '../services/search.service';
+import { SearchService } from '../../../services/search.service';
 import { Router } from '@angular/router';
 
 

@@ -1,15 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import Movie from '../../models/movie.model';
 import { Subscription } from 'rxjs';
-import { SearchService } from '../services/search.service';
+import { SearchService } from '../../../services/search.service';
 
 
 @Component({
-  selector: 'app-search-screen',
-  templateUrl: './search-screen.component.html',
-  styleUrls: ['./search-screen.component.scss']
+  selector: 'app-movie-search',
+  templateUrl: './movie-search.component.html',
+  styleUrls: ['./movie-search.component.scss']
 })
-export class SearchScreenComponent implements OnInit {
+export class MovieSearchComponent implements OnInit {
 
   subscription: Subscription;
   query: string;

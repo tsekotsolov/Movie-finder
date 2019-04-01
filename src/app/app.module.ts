@@ -1,48 +1,29 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { MoviesComponent } from './movies/movies.component';
-import { NavigationComponent } from './navigation/navigation.component';
-import { HttpClientModule } from '@angular/common/http';
-import { MoviesService } from './services/movies.service';
-import { MovieComponent } from './movie/movie.component';
-import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import { FormsModule } from '@angular/forms';
-import { SearchService } from '../app/services/search.service';
-import { SearchScreenComponent } from './search-screen/search-screen.component';
-import { RegisterComponent } from './register/register.component';
-import { LoginComponent } from './login/login.component';
-import { DragScrollModule } from 'ngx-drag-scroll';
-import { MovieCategoryComponent } from './movie-category/movie-category.component';
-import { MovieDetailsResolver } from './services/resolvers/movie-details.resolver';
 
+import { AppRoutingModule } from './app-routing.module';
+import { AppMoviesModule } from './movies-module';
+import { AppComponent } from './app.component';
+import { NavigationComponent } from './components/shared/navigation/navigation.component';
+import { RegisterComponent } from './components/authentication/register/register.component';
+import { LoginComponent } from './components/authentication/login/login.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    MoviesComponent,
     NavigationComponent,
-    MovieComponent,
-    MovieDetailsComponent,
-    SearchScreenComponent,
     RegisterComponent,
     LoginComponent,
-    MovieCategoryComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule,
     FormsModule,
-    DragScrollModule
+    AppMoviesModule
   ],
-  providers: [
-    MoviesService,
-    SearchService,
-    MovieDetailsResolver
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

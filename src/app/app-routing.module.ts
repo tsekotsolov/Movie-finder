@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { MoviesComponent } from './movies/movies.component';
-import { MovieDetailsComponent } from './movie-details/movie-details.component';
-import {SearchScreenComponent } from './search-screen/search-screen.component';
-import { RegisterComponent } from './register/register.component';
-import { LoginComponent } from './login/login.component';
+import { MoviesContainerComponent } from './components/movies/movies-container/movies-container.component';
+import { MovieDetailsComponent } from './components/movies/movie-details/movie-details.component';
+import {MovieSearchComponent } from './components/movies/movie-search/movie-search.component';
+import { RegisterComponent } from './components/authentication/register/register.component';
+import { LoginComponent } from './components/authentication/login/login.component';
 import { MovieDetailsResolver } from './services/resolvers/movie-details.resolver';
 
 const routes: Routes = [
-  { path: '', component: MoviesComponent },
+  { path: '', component: MoviesContainerComponent },
   { path: 'movie/:id', component: MovieDetailsComponent, resolve: {movieDetails: MovieDetailsResolver}  },
-  { path: 'search', component: SearchScreenComponent },
+  { path: 'search', component: MovieSearchComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
 ];

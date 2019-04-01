@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import MovieDetails from '../../models/movieDetails.model';
-import { imageBaseUrl } from '../services/api.constants';
+import MovieDetails from '../../../../models/movieDetails.model';
+import { imageBaseUrl } from '../../../services/api.constants';
 const image = '../../assets/images/noimage.jpg';
 
 @Component({

@@ -1,13 +1,13 @@
 import { Component, OnInit, Input, ElementRef, ViewChild } from '@angular/core';
-import Movie from '../../models/movie.model';
-import {imageBaseUrl} from '../services/api.constants';
+import Movie from '../../../../models/movie.model';
+import {imageBaseUrl} from '../../../services/api.constants';
 
 @Component({
-  selector: 'app-movie',
-  templateUrl: './movie.component.html',
-  styleUrls: ['./movie.component.scss']
+  selector: 'app-movie-card',
+  templateUrl: './movie-card.component.html',
+  styleUrls: ['./movie-card.component.scss']
 })
-export class MovieComponent implements OnInit {
+export class MovieCardComponent implements OnInit {
 
   @ViewChild('width') width: ElementRef;
   @Input() movie: Movie;
