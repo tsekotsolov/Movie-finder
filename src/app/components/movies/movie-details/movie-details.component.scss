@@ -2,12 +2,22 @@
 .movie-wrapper{
   margin-top: 7rem;
   text-align: center;
+  
 }
 .poster{
   width: 80%;
-  margin-bottom: 2rem;
 }
-.list-group{
-  text-align: justify;
+
+.card{
+  height: 100%;
+  .card-body{
+    padding: 0.2rem;
+  }
 }
+.actor-image{
+  width:100%;
+  height: 100%;
+  border-radius:50%;
+}
+
 

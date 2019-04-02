@@ -58,7 +58,6 @@ export class MovieCategoryComponent implements OnInit {
 
     this.getMovies.subscribe(data => {
       this.loading = false;
-      console.log(data);
       data.results.length > 0
         ? (this.movies = data.results)
         : (this.movies = null);

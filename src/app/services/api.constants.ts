@@ -22,5 +22,6 @@ export const kidsUrl = `${baseUrl}${kids}${authentication}${apiKey}`;
 export const dramaUrl = `${baseUrl}${drama}${authentication}${apiKey}`;
 export const generateMovieUrl = (id: number) => `${baseUrl}movie/${id}${movieAuth}${apiKey}`;
 export const generateSearchUrl = (query: string) => `${baseUrl}search/movie?query=${query}${authentication}${apiKey}`;
+export const generateCastUrl = (id: number) => `https://api.themoviedb.org/3/movie/${id}/credits?api_key=c7141429c3455427c3801180a641ad9b`;
 
 

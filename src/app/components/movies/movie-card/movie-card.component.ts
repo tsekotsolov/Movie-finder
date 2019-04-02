@@ -27,7 +27,7 @@ export class MovieCardComponent implements OnInit {
     this.height = `${elementWidth * 1.5}px`;
     this.movie.poster_path
       ? (this.imageUrl = imageBaseUrl + this.movie.poster_path)
-      : (this.imageUrl = '../../assets/images/noimage.jpg');
+      : (this.imageUrl = '../../assets/images/noimage.gif');
   }
 
   onResize() {

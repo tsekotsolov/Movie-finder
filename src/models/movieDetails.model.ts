@@ -5,4 +5,5 @@ export interface MovieDetails {
   genres: [];
   id: number;
   poster_path: string;
+  vote_average: number;
 }

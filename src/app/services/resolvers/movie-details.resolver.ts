@@ -1,18 +1,20 @@
 import { Injectable } from '@angular/core';
+import { forkJoin } from 'rxjs';
 import {
   Resolve,
   ActivatedRouteSnapshot,
   RouterStateSnapshot
 } from '@angular/router';
-import { MovieDetails } from '@models';
 import { MoviesService } from '../movies.service';
 
 @Injectable()
-export class MovieDetailsResolver implements Resolve<MovieDetails> {
+export class MovieDetailsResolver implements Resolve<object> {
   constructor(private moviesService: MoviesService) {}
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     const id = route.params.id;
-    return this.moviesService.getMovie(id);
+    const movie = this.moviesService.getMovie(id);
+    const cast = this.moviesService.getMovieCast(id);
+    return forkJoin(movie, cast);
   }
 }

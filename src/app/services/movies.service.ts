@@ -8,7 +8,8 @@ import {
   kidsUrl,
   dramaUrl,
   generateMovieUrl,
-  generateSearchUrl
+  generateSearchUrl,
+  generateCastUrl
 } from './api.constants';
 import { MovieDetails } from '@models';
 
@@ -26,4 +27,7 @@ export class MoviesService {
     this.http.get<MovieDetails>(generateMovieUrl(id))
   findMovies = (query: string): Observable<Movies> =>
     this.http.get<Movies>(generateSearchUrl(query))
+  getMovieCast = (id: number): Observable<any> =>
+    this.http.get<any>(generateCastUrl(id))
+
 }

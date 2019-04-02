@@ -14,7 +14,7 @@ import { MovieCategoryComponent } from './components/movies/movie-category/movie
 import { MoviesService } from './services/movies.service';
 import { SearchService } from './services/search.service';
 import { MovieDetailsResolver } from './services/resolvers/movie-details.resolver';
-
+import { PercentageComponent } from './components/ui/percentage/percentage.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +22,8 @@ import { MovieDetailsResolver } from './services/resolvers/movie-details.resolve
     MovieCardComponent,
     MovieDetailsComponent,
     MovieSearchComponent,
-    MovieCategoryComponent
+    MovieCategoryComponent,
+    PercentageComponent
   ],
   imports: [
     CommonModule,
