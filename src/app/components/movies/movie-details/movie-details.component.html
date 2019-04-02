@@ -7,7 +7,7 @@
       <ul class="list-group">
         <li class="list-group-item">Title: <span>{{movie.title}} </span></li>
         <li class="list-group-item">Genres: <span>{{genres}} </span></li>
-        <li class="list-group-item">Release Date: {{movie.release_date}}</li>
+        <li class="list-group-item">Release Date: {{movie.release_date | date:'mediumDate'}}</li>
         <li class="list-group-item">{{movie.overview}}</li>
       </ul>
       <br>

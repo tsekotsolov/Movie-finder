@@ -39,7 +39,7 @@ export class MovieCardComponent implements OnInit {
     this.isFlipped = !this.isFlipped;
   }
 
-  trimOverview(overview: string){
+  trimOverview(overview: string) {
     overview = overview.slice(0, 200);
     const index = overview.lastIndexOf(' ');
     return overview.slice(0, index).concat('...');

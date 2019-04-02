@@ -1,10 +1,8 @@
 .card {
-
   position: relative;
   transition: transform 1s;
   transform-style: preserve-3d;
   cursor: pointer;
-
 }
 
 .card__face {
@@ -24,14 +22,12 @@
   }
 
   .btn-custom {
-    color:#399939;
+    color: #399939;
     height: 0.8rem;
     display: flex;
     align-items: center;
     justify-content: center;
-
   }
-
 }
 
 .card__face--back {

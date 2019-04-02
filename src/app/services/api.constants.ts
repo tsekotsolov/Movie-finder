@@ -20,7 +20,7 @@ export const popularUrl = `${baseUrl}${popular}${authentication}${apiKey}`;
 export const theatersUrl = `${baseUrl}${theaters}${authentication}${apiKey}`;
 export const kidsUrl = `${baseUrl}${kids}${authentication}${apiKey}`;
 export const dramaUrl = `${baseUrl}${drama}${authentication}${apiKey}`;
-export const generateMovieUrl = id => `${baseUrl}movie/${id}${movieAuth}${apiKey}`;
-export const generateSearchUrl = query => `${baseUrl}search/movie?query=${query}${authentication}${apiKey}`;
+export const generateMovieUrl = (id: number) => `${baseUrl}movie/${id}${movieAuth}${apiKey}`;
+export const generateSearchUrl = (query: string) => `${baseUrl}search/movie?query=${query}${authentication}${apiKey}`;
 
 

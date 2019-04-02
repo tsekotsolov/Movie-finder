@@ -17,13 +17,13 @@ export class MoviesService {
   constructor(private http: HttpClient) {}
 
   getPopularMovies = (): Observable<Movies> =>
-    this.http.get<Movies>(popularUrl);
+    this.http.get<Movies>(popularUrl)
   getTheatersMovies = (): Observable<Movies> =>
-    this.http.get<Movies>(theatersUrl);
+    this.http.get<Movies>(theatersUrl)
   getKidsMovies = (): Observable<Movies> => this.http.get<Movies>(kidsUrl);
   getDramaMovies = (): Observable<Movies> => this.http.get<Movies>(dramaUrl);
-  getMovie = (id: string): Observable<MovieDetails> =>
-    this.http.get<MovieDetails>(generateMovieUrl(id));
+  getMovie = (id: number): Observable<MovieDetails> =>
+    this.http.get<MovieDetails>(generateMovieUrl(id))
   findMovies = (query: string): Observable<Movies> =>
-    this.http.get<Movies>(generateSearchUrl(query));
+    this.http.get<Movies>(generateSearchUrl(query))
 }
