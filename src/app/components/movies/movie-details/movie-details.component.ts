@@ -21,7 +21,6 @@ export class MovieDetailsComponent implements OnInit {
   ngOnInit() {
     this.movie = this.route.snapshot.data.movieDetails[0];
     this.vote = this.movie.vote_average * 10 + ',100';
-    console.log(this.movie);
     this.cast = this.route.snapshot.data.movieDetails[1].cast
       .slice(0, 4)
       .map((actor: any) => {

@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
-
 import { DragScrollModule } from 'ngx-drag-scroll/lib';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -28,7 +26,6 @@ import { PercentageComponent } from './components/ui/percentage/percentage.compo
   imports: [
     CommonModule,
     HttpClientModule,
-    FormsModule,
     AppRoutingModule,
     DragScrollModule
   ],
