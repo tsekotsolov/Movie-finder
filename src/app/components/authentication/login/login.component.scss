@@ -1,3 +1,11 @@
-.container{
-  width:60vw;
+.container {
+  width: 60vw;
+
+  .invalid-field {
+    width: 100%;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.8rem;
+    color: #ee5f5b;
+  }
 }

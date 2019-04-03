@@ -1,12 +1,13 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-  <a class="navbar-brand" routerLink="/">{{title}}</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
-    aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
 
-  <div class="collapse navbar-collapse" id="navbarColor02">
-    <ul class="navbar-nav mr-auto">
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" href="#">{{title}}</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarColor01">
+       <ul class="navbar-nav mr-auto">
       <li class="nav-item">
         <a class="nav-link" routerLink="/">Home <span class="sr-only">(current)</span></a>
       </li>
@@ -17,10 +18,24 @@
         <a class="nav-link" routerLink="/login">Login <span class="sr-only">(current)</span></a>
       </li>
     </ul>
-    <form #form="ngForm" class="form-inline my-2 my-lg-0" (submit)="search(form.value)">
-      <input class="form-control mr-sm-2" required type="text" placeholder="Find a movie..." aria-label="Search" name="search"
-        [(ngModel)]="query">
+      <form #form="ngForm" class="form-inline my-2 my-lg-0" (submit)="search(form.value)">
+      <input class="form-control mr-sm-2" required type="text" placeholder="Find a movie..." aria-label="Search"
+        name="search" [(ngModel)]="query">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit" [disabled]="!form.valid">Search</button>
     </form>
-  </div>
-</nav>
+    <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+        <button type="button" class="btn btn-primary">Welcome, user</button>
+        <div class="btn-group" role="group">
+          <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false"></button>
+          <div class="dropdown-menu" aria-labelledby="btnGroupDrop1" x-placement="bottom-start"
+            style="position: absolute; transform: translate3d(0px, 48px, 0px); top: 0px; left: -105px; will-change: transform;">
+            <a class="dropdown-item" href="#">Dropdown link</a>
+            <a class="dropdown-item" href="#">Dropdown link</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  

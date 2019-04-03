@@ -20,8 +20,14 @@ export const popularUrl = `${baseUrl}${popular}${authentication}${apiKey}`;
 export const theatersUrl = `${baseUrl}${theaters}${authentication}${apiKey}`;
 export const kidsUrl = `${baseUrl}${kids}${authentication}${apiKey}`;
 export const dramaUrl = `${baseUrl}${drama}${authentication}${apiKey}`;
+
 export const generateMovieUrl = (id: number) => `${baseUrl}movie/${id}${movieAuth}${apiKey}`;
 export const generateSearchUrl = (query: string) => `${baseUrl}search/movie?query=${query}${authentication}${apiKey}`;
-export const generateCastUrl = (id: number) => `https://api.themoviedb.org/3/movie/${id}/credits?api_key=c7141429c3455427c3801180a641ad9b`;
+export const generateCastUrl = (id: number) => `${baseUrl}movie/${id}/credits${movieAuth}${apiKey}`;
+export const generateRequestTokenUrl = () => `${baseUrl}authentication/token/new?api_key=${apiKey}`;
+export const generateLoginUrl = () => `${baseUrl}authentication/token/validate_with_login?api_key=${apiKey}`;
+export const generateSessionUrl = () => `${baseUrl}authentication/session/new?api_key=${apiKey}`;
+export const generateUserDetailsUrl = (sessionId: string) => `${baseUrl}account?api_key=${apiKey}&session_id=${sessionId}`;
+
 
 
