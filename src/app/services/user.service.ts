@@ -6,7 +6,12 @@ import { generateUserDetailsUrl } from './api.constants';
 
 @Injectable()
 export class UserService {
+
   constructor(private http: HttpClient) {}
   getUserDetails = (sessionId: string): Observable<any> =>
     this.http.get<any>(generateUserDetailsUrl(sessionId))
+
+  getUserName = () => {
+    return localStorage.getItem('username');
+  }
 }

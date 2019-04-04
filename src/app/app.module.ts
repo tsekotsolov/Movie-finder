@@ -9,16 +9,16 @@ import { AppMoviesModule } from './app-movies.module';
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './components/shared/navigation/navigation.component';
 import { AppAuthenticationModule } from './app-authentication.module';
+import { SearchComponent } from './components/shared/search/search.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavigationComponent,
+    NavigationComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule,
     AppRoutingModule,
     AppMoviesModule,
     AppAuthenticationModule,

@@ -1,0 +1,22 @@
+form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 1rem;
+
+  input[type="submit"] {
+    display: none;
+  }
+
+  label {
+    position: relative;
+  }
+  
+  svg {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: -33px;
+    left: 178px;
+  }
+}

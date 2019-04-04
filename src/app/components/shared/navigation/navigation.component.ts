@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
-import { SearchService } from '@services';
-import { Router } from '@angular/router';
-
+import {AuthenticationService, UserService } from '@services';
 
 @Component({
   selector: 'app-navigation',
@@ -9,24 +7,18 @@ import { Router } from '@angular/router';
   styleUrls: ['./navigation.component.scss']
 })
 export class NavigationComponent {
+  username: string;
 
-  title: string;
-  query: string;
+  constructor(
+    private authenticationService: AuthenticationService,
+    private userService: UserService
+  ) {
+    this.username = this.userService.getUserName();
+    this.authenticationService.emitUserName.subscribe((name: string) => this.username = name);
+  }
 
-  constructor( private searchService: SearchService, private router: Router) {
-    this.title = 'Movie Finder';
-   }
-
-   redirectTo(uri: string) {
-    this.router.navigateByUrl('/', {skipLocationChange: true}).then(() =>
-    this.router.navigate([uri])); }
-
-  search() {
-    this.searchService.passQuery(this.query);
-    this.query = '';
-    this.router.navigate(['search']);
-    if (this.router.url === '/search') {
-      this.redirectTo('search');
-    }
+  logout = () => {
+    console.log('logout');
+    this.authenticationService.logout();
   }
 }

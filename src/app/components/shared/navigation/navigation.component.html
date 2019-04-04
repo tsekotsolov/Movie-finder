@@ -1,41 +1,30 @@
-
-
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <a class="navbar-brand" href="#">{{title}}</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-  
-    <div class="collapse navbar-collapse" id="navbarColor01">
-       <ul class="navbar-nav mr-auto">
+  <a class="navbar-brand" routerLink="/">Movie Finder</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
+    aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarColor01">
+    <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" routerLink="/">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" routerLink="/register" *ngIf="!username">Register <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/register">Register <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/login">Login <span class="sr-only">(current)</span></a>
+        <a class="nav-link" routerLink="/login" *ngIf="!username">Login <span class="sr-only">(current)</span></a>
       </li>
     </ul>
-      <form #form="ngForm" class="form-inline my-2 my-lg-0" (submit)="search(form.value)">
-      <input class="form-control mr-sm-2" required type="text" placeholder="Find a movie..." aria-label="Search"
-        name="search" [(ngModel)]="query">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit" [disabled]="!form.valid">Search</button>
-    </form>
-    <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
-        <button type="button" class="btn btn-primary">Welcome, user</button>
-        <div class="btn-group" role="group">
-          <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false"></button>
-          <div class="dropdown-menu" aria-labelledby="btnGroupDrop1" x-placement="bottom-start"
-            style="position: absolute; transform: translate3d(0px, 48px, 0px); top: 0px; left: -105px; will-change: transform;">
-            <a class="dropdown-item" href="#">Dropdown link</a>
-            <a class="dropdown-item" href="#">Dropdown link</a>
-          </div>
+
+    <div class="btn-group" role="group" aria-label="Button group with nested dropdown" *ngIf="username">
+      <button type="button" class="btn btn-primary">Welcome, {{username}}</button>
+      <div class="btn-group" role="group">
+        <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false"></button>
+        <div class="dropdown-menu" aria-labelledby="btnGroupDrop1" x-placement="bottom-start"
+          style="position: absolute; transform: translate3d(0px, 48px, 0px); top: 0px; left: -105px; will-change: transform;">
+          <a class="dropdown-item" href="#" (click)="logout()">Logout</a>
         </div>
       </div>
     </div>
-  </nav>
-
-  
+  </div>
+</nav>

@@ -28,6 +28,8 @@ export const generateRequestTokenUrl = () => `${baseUrl}authentication/token/new
 export const generateLoginUrl = () => `${baseUrl}authentication/token/validate_with_login?api_key=${apiKey}`;
 export const generateSessionUrl = () => `${baseUrl}authentication/session/new?api_key=${apiKey}`;
 export const generateUserDetailsUrl = (sessionId: string) => `${baseUrl}account?api_key=${apiKey}&session_id=${sessionId}`;
+export const generateDeleteSessionUrl = () => `${baseUrl}authentication/session?api_key=${apiKey}`;
+
 
 
 

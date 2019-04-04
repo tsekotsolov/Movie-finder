@@ -13,6 +13,8 @@ import { MoviesService } from './services/movies.service';
 import { SearchService } from './services/search.service';
 import { MovieDetailsResolver } from './services/resolvers/movie-details.resolver';
 import { PercentageComponent } from './components/ui/percentage/percentage.component';
+import { SearchComponent } from './components/shared/search/search.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,18 +23,21 @@ import { PercentageComponent } from './components/ui/percentage/percentage.compo
     MovieDetailsComponent,
     MovieSearchComponent,
     MovieCategoryComponent,
-    PercentageComponent
+    PercentageComponent,
+    SearchComponent
   ],
   imports: [
     CommonModule,
     HttpClientModule,
     AppRoutingModule,
-    DragScrollModule
+    DragScrollModule,
+    FormsModule
   ],
   providers: [
     MoviesService,
     SearchService,
-    MovieDetailsResolver
+    MovieDetailsResolver,
+
   ]
 })
 export class AppMoviesModule { }

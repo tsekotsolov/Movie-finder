@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { AuthenticationService, UserService } from '@services';
-import { Router } from '@angular/router';
+import { Component } from '@angular/core';
+import { AuthenticationService } from '@services';
+
 
 @Component({
   selector: 'app-login',
@@ -11,22 +11,9 @@ export class LoginComponent  {
 
   constructor(
     private authenticationService: AuthenticationService,
-    private router: Router,
-    private userService: UserService
   ) {}
 
-  login(formData: any) {
-    console.log(formData);
-    this.authenticationService.createRequestToken().subscribe(data => {
-      this.authenticationService.validateRequestToken(data.request_token, formData.value).subscribe(res => {
-        this.authenticationService.createSessionId(res.request_token).subscribe(sessionData => {
-          localStorage.setItem('sessionId', sessionData.session_id);
-          this.userService.getUserDetails(sessionData.session_id).subscribe(userDetails => {
-            console.log(userDetails);
-          });
-          this.router.navigate(['/']);
-        });
-      });
-    });
+ login(formData: any) {
+    this.authenticationService.login(formData);
   }
 }
