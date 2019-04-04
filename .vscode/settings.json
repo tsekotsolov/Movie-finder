@@ -3,7 +3,9 @@
     "default",
     "example",
     "injectable",
+    "module",
     "navbars",
-    "noimage"
+    "noimage",
+    "toastr"
   ]
 }

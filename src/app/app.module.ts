@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppMoviesModule } from './app-movies.module';
@@ -19,7 +21,9 @@ import { AppAuthenticationModule } from './app-authentication.module';
     FormsModule,
     AppRoutingModule,
     AppMoviesModule,
-    AppAuthenticationModule
+    AppAuthenticationModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

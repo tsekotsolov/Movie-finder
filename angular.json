@@ -28,7 +28,8 @@
             ],
             "styles": [
               "src/styles.scss",
-              "src/assets/vendors/bootstrap/bootstrap.min.css"
+              "src/assets/vendors/bootstrap/bootstrap.min.css",
+              "node_modules/ngx-toastr/toastr.css"
             ],
             "scripts": [],
             "es5BrowserSupport": true
