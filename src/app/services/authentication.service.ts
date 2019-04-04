@@ -1,8 +1,10 @@
-import { Injectable, Output, EventEmitter } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import {UserService} from './user.service';
-import { Router, CanActivate } from '@angular/router';
+import { UserService } from './user.service';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+
 
 import {
  generateRequestTokenUrl,
@@ -11,14 +13,14 @@ import {
  generateDeleteSessionUrl
 } from './api.constants';
 
-
 @Injectable()
-export class AuthenticationService implements CanActivate {
+export class AuthenticationService {
 
   constructor(
     private http: HttpClient,
     private userService: UserService,
     private router: Router,
+    private toastr: ToastrService
     ) {}
 
   emitUserName: EventEmitter<any> = new EventEmitter();
@@ -48,7 +50,6 @@ export class AuthenticationService implements CanActivate {
       session_id: localStorage.getItem('sessionId')
     },
   };
-
     return this.http.delete<any>(generateDeleteSessionUrl(), options);
   }
 
@@ -60,29 +61,35 @@ export class AuthenticationService implements CanActivate {
             this.userService.getUserDetails(sessionData.session_id).subscribe(userDetails => {
               localStorage.setItem('username', userDetails.username);
               this.emitUserName.emit(userDetails.username);
+              this.showSuccess('Login Success');
               this.router.navigate(['/']);
-            });
+            }, err => console.log(err));
           });
+        }, err => {
+          console.log(err);
+          this.showFailure(err.statusText);
         });
-      });
+      }, err => console.log(err));
     }
 
     logout = () => this.deleteSession().subscribe(() => {
       localStorage.removeItem('sessionId');
       localStorage.removeItem('username');
+      this.showSuccess('Logout Success');
       this.emitUserName.emit('');
+      this.router.navigate(['/']);
     })
 
     isAuthenticated = () => (
       localStorage.getItem('sessionId') ? true : false
     )
 
-    canActivate(): boolean {
-      if (!this.isAuthenticated()) {
-        this.router.navigate(['login']);
-        return false;
-      }
-      return true;
+   private showSuccess(message: string) {
+      this.toastr.success(message);
+    }
+
+   private showFailure(message: string) {
+      this.toastr.error(message);
     }
 
 }

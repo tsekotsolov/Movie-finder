@@ -6,14 +6,14 @@ import {MovieSearchComponent } from './components/movies/movie-search/movie-sear
 import { RegisterComponent } from './components/authentication/register/register.component';
 import { LoginComponent } from './components/authentication/login/login.component';
 import { MovieDetailsResolver } from './services/resolvers/movie-details.resolver';
-import { AuthenticationService } from './services/authentication.service';
+import { UserGuardService } from '@services';
 
 const routes: Routes = [
   { path: '', component: MoviesContainerComponent },
   { path: 'movie/:id',
     component: MovieDetailsComponent,
     resolve: {movieDetails: MovieDetailsResolver},
-    canActivate: [AuthenticationService] },
+    canActivate: [UserGuardService] },
   { path: 'search', component: MovieSearchComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },

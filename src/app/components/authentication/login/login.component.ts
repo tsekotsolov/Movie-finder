@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 import { AuthenticationService } from '@services';
-
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',

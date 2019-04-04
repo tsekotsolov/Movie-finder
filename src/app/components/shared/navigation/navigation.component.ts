@@ -18,7 +18,6 @@ export class NavigationComponent {
   }
 
   logout = () => {
-    console.log('logout');
     this.authenticationService.logout();
   }
 }
