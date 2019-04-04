@@ -1,27 +1,51 @@
-# MovieFinder
+# Movie Finder
+![Logo](https://res.cloudinary.com/tsekotsolov/image/upload/v1554401460/movie.png "Logo")
+## Ultimate Movie User experience
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.4.
+### The concept
+* The application presents information about movies and fans.
 
-## Development server
+### Used technologies:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+* Angular
+* Kinvey 
+* Bootstrap
+* Cloudinary API
+* Movie DB API
+ 
+## View demo here: 
+movies.unibox.bg 
 
-## Code scaffolding
+### Main area
+* Users can view movie details, create lists and add movies to favorites list.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Logged in User area
+* Logged in Users can view movie details, create lists edit them and add movies to favorites list.
 
-## Build
+### Admin area
+* Admins can ban and restore users.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-## Running unit tests
+### Prerequisites
+You will need to install the Node.js from the official web page https://nodejs.org
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Installation
+Once you have Node.js prerequisite installed.
 
-## Running end-to-end tests
+1. Download the source code navigate to the folder where the files are located
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+2. Open a CMD window there
 
-## Further help
+3. Install all needed packages
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+4. Run npm install
+
+5. Run ng serve --open
+
+## Authors
+  * **Tseko Tsolov**
+
+See also the list of  [contributors](https://github.com/tsekotsolov/band/graphs/contributors) who participated in this project.
+
+License
+This project is licensed under the MIT License - see the LICENSE.md file for details
