@@ -2,7 +2,6 @@ form {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-top: 1rem;
 
   input[type="submit"] {
     display: none;
@@ -11,7 +10,7 @@ form {
   label {
     position: relative;
   }
-  
+
   svg {
     position: absolute;
     width: 20px;

@@ -1,9 +1,9 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { UserService } from './user.service';
+import { UserService } from '../user.service';
 import { Router } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
+import { NotificationsService } from '../notifications/notifications.service';
 
 
 import {
@@ -11,7 +11,7 @@ import {
  generateLoginUrl,
  generateSessionUrl,
  generateDeleteSessionUrl
-} from './api.constants';
+} from '../api.constants';
 
 @Injectable()
 export class AuthenticationService {
@@ -20,7 +20,7 @@ export class AuthenticationService {
     private http: HttpClient,
     private userService: UserService,
     private router: Router,
-    private toastr: ToastrService
+    private notifications: NotificationsService,
     ) {}
 
   emitUserName: EventEmitter<any> = new EventEmitter();
@@ -61,13 +61,13 @@ export class AuthenticationService {
             this.userService.getUserDetails(sessionData.session_id).subscribe(userDetails => {
               localStorage.setItem('username', userDetails.username);
               this.emitUserName.emit(userDetails.username);
-              this.showSuccess('Login Success');
+              this.notifications.showSuccess('Login Success');
               this.router.navigate(['/']);
             }, err => console.log(err));
           });
         }, err => {
           console.log(err);
-          this.showFailure(err.statusText);
+          this.notifications.showFailure(err.statusText);
         });
       }, err => console.log(err));
     }
@@ -75,7 +75,7 @@ export class AuthenticationService {
     logout = () => this.deleteSession().subscribe(() => {
       localStorage.removeItem('sessionId');
       localStorage.removeItem('username');
-      this.showSuccess('Logout Success');
+      this.notifications.showSuccess('Logout Success');
       this.emitUserName.emit('');
       this.router.navigate(['/']);
     })
@@ -83,13 +83,5 @@ export class AuthenticationService {
     isAuthenticated = () => (
       localStorage.getItem('sessionId') ? true : false
     )
-
-   private showSuccess(message: string) {
-      this.toastr.success(message);
-    }
-
-   private showFailure(message: string) {
-      this.toastr.error(message);
-    }
 
 }

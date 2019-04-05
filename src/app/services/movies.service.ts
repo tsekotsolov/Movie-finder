@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Movies } from '@models';
+import { Movies, MovieDetails } from '@models';
 import {
   popularUrl,
   theatersUrl,
@@ -11,7 +11,6 @@ import {
   generateSearchUrl,
   generateCastUrl
 } from './api.constants';
-import { MovieDetails } from '@models';
 
 @Injectable()
 export class MoviesService {

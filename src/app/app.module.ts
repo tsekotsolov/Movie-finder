@@ -15,12 +15,14 @@ import { SearchComponent } from './components/shared/search/search.component';
 @NgModule({
   declarations: [
     AppComponent,
-    NavigationComponent
+    NavigationComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AppMoviesModule,
+    FormsModule,
     AppAuthenticationModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot()
