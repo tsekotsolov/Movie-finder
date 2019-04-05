@@ -71,4 +71,5 @@ export class MovieCategoryComponent implements OnInit {
   moveRight() {
     this.ds.moveRight();
   }
+
 }

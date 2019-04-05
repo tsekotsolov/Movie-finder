@@ -18,6 +18,7 @@ export class SearchComponent  {
     this.router.navigate([uri])); }
 
   search() {
+
     this.searchService.passQuery(this.query);
     this.query = '';
     this.router.navigate(['search']);

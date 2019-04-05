@@ -5,14 +5,10 @@ import { ToastrService } from 'ngx-toastr';
 @Injectable()
 export class NotificationsService {
 
-  constructor(
-    private toastr: ToastrService
-    ) {}
-
+  constructor(private toastr: ToastrService) {}
     showSuccess(message: string) {
-      this.toastr.success(message);
+      console.log(this.toastr.success(message));
     }
-
     showFailure(message: string) {
       this.toastr.error(message);
     }
