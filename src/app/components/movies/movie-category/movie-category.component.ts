@@ -1,9 +1,9 @@
-import { Component, OnInit, ViewChild, Input } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Component, OnInit, ViewChild, Input, OnDestroy } from '@angular/core';
+import { Observable, Subscription } from 'rxjs';
 
 import { DragScrollComponent } from 'ngx-drag-scroll';
 
-import { MoviesService } from '@services';
+import { MoviesService, LoadingService } from '@services';
 import { Movie } from '@models';
 
 @Component({
@@ -11,7 +11,7 @@ import { Movie } from '@models';
   templateUrl: './movie-category.component.html',
   styleUrls: ['./movie-category.component.scss']
 })
-export class MovieCategoryComponent implements OnInit {
+export class MovieCategoryComponent implements OnInit, OnDestroy {
   @ViewChild('nav', { read: DragScrollComponent }) ds: DragScrollComponent;
   @Input() type: string;
   @Input() query: string;
@@ -20,11 +20,13 @@ export class MovieCategoryComponent implements OnInit {
   getMovies: Observable<any>;
   categoryName: string;
   loading: boolean;
+  movieSubscription: Subscription;
 
-  constructor(private moviesService: MoviesService) {}
+  constructor(private moviesService: MoviesService, private emitLoading: LoadingService) {}
 
   ngOnInit() {
     this.loading = true;
+    this.emitLoading.emitLoading.emit(this.loading);
 
     switch (this.type) {
       case 'popular':
@@ -56,8 +58,9 @@ export class MovieCategoryComponent implements OnInit {
         break;
     }
 
-    this.getMovies.subscribe(data => {
+    this.movieSubscription = this.getMovies.subscribe(data => {
       this.loading = false;
+      this.emitLoading.emitLoading.emit(this.loading);
       data.results.length > 0
         ? (this.movies = data.results)
         : (this.movies = null);
@@ -70,6 +73,12 @@ export class MovieCategoryComponent implements OnInit {
 
   moveRight() {
     this.ds.moveRight();
+  }
+
+  ngOnDestroy() {
+    if (this.movieSubscription) {
+      this.movieSubscription.unsubscribe();
+    }
   }
 
 }

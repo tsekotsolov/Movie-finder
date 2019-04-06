@@ -6,3 +6,4 @@ export * from './user.service';
 export * from './resolvers/movie-details.resolver';
 export * from './guards/user-guard.service';
 export * from './notifications/notifications.service';
+export * from './loading/loading.service';

@@ -10,13 +10,16 @@ import { AppComponent } from './app.component';
 import { NavigationComponent } from './components/shared/navigation/navigation.component';
 import { AppAuthenticationModule } from './app-authentication.module';
 import { SearchComponent } from './components/shared/search/search.component';
+import { LoaderComponent } from './components/ui/loader/loader.component';
+import { LoadingService } from '@services';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
-    SearchComponent
+    SearchComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +30,9 @@ import { SearchComponent } from './components/shared/search/search.component';
     BrowserAnimationsModule,
     ToastrModule.forRoot()
   ],
-  providers: [],
+  providers: [
+   LoadingService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

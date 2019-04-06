@@ -22,7 +22,7 @@ import { FormsModule } from '@angular/forms';
     MovieDetailsComponent,
     MovieSearchComponent,
     MovieCategoryComponent,
-    PercentageComponent,
+    PercentageComponent
   ],
   imports: [
     CommonModule,

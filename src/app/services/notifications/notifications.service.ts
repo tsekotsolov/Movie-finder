@@ -7,7 +7,7 @@ export class NotificationsService {
 
   constructor(private toastr: ToastrService) {}
     showSuccess(message: string) {
-      console.log(this.toastr.success(message));
+     this.toastr.success(message);
     }
     showFailure(message: string) {
       this.toastr.error(message);
