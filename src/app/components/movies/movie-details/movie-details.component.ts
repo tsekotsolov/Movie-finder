@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MovieDetails, Cast } from '@models';
 import { imageBaseUrl } from '@services';
-const image = '../../assets/images/noimage.gif';
+const image = '../../assets/images/no-image-yet.jpg';
 
 @Component({
   selector: 'app-movie-details',

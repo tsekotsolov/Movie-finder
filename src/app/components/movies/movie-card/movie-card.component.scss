@@ -2,7 +2,47 @@
   position: relative;
   transition: transform 1s;
   transform-style: preserve-3d;
-  cursor: pointer;
+
+  .user-interaction {
+    visibility: hidden;
+    backface-visibility: hidden;
+    background-color: rgba(255, 255, 255, 0.9);
+    height: 40px;
+    width: 100%;
+    z-index: 100;
+    box-sizing: border-box;
+    padding-left: 10px;
+    padding-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    bottom: -9px;
+    left: 0px;
+
+  }
+
+  &:hover .user-interaction {
+    visibility: visible;
+  }
+
+  i {
+    outline: none;
+    margin-left: 7px;
+    cursor: pointer;
+  }
+
+  .heart:hover {
+    color: #ee5f5b;
+  }
+
+  .info:hover {
+    color: #28A5C9;
+  }
+
+  .flip:hover {
+    color: #399939;
+  }
 }
 
 .card__face {
@@ -21,22 +61,16 @@
     text-align: justify;
   }
 
-  .btn-custom {
-    color: #399939;
-    height: 0.8rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
 }
 
 .card__face--back {
   display: flex;
   flex-direction: column;
   padding: 20px;
-  justify-content: space-between;
+  justify-content: flex-start;
   text-align: center;
   transform: rotateY(180deg);
+  font-size: 95%;
 }
 
 .is-flipped {

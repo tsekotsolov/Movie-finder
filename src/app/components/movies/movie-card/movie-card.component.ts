@@ -19,7 +19,7 @@ export class MovieCardComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    this.movie.overview.length > 200
+    this.movie.overview.length > 500
       ? this.overview = this.trimOverview(this.movie.overview)
       : this.overview = this.movie.overview;
 
@@ -27,7 +27,7 @@ export class MovieCardComponent implements OnInit {
     this.height = `${elementWidth * 1.5}px`;
     this.movie.poster_path
       ? (this.imageUrl = imageBaseUrl + this.movie.poster_path)
-      : (this.imageUrl = '../../assets/images/noimage.gif');
+      : (this.imageUrl = '../../assets/images/no-image-yet.jpg');
   }
 
   onResize() {
@@ -40,7 +40,7 @@ export class MovieCardComponent implements OnInit {
   }
 
   trimOverview(overview: string) {
-    overview = overview.slice(0, 200);
+    overview = overview.slice(0, 500);
     const index = overview.lastIndexOf(' ');
     return overview.slice(0, index).concat('...');
   }
