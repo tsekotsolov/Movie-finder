@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
 import { NotificationsService } from '../notifications/notifications.service';
 import { LoadingService } from '../loading/loading.service';
+import { UserService } from '../user.service';
 import { Kinvey } from 'kinvey-angular2-sdk';
 
 import {
@@ -20,10 +21,12 @@ export class AuthenticationService implements OnDestroy {
     private http: HttpClient,
     private router: Router,
     private notifications: NotificationsService,
-    private loading: LoadingService
+    private loading: LoadingService,
+    private user: UserService
   ) {}
 
   emitUserName: EventEmitter<any> = new EventEmitter();
+
   createRequest: Subscription;
   validateRequest: Subscription;
   createSession: Subscription;

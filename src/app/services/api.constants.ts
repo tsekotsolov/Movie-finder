@@ -21,6 +21,7 @@ export const theatersUrl = `${baseUrl}${theaters}${authentication}${apiKey}`;
 export const kidsUrl = `${baseUrl}${kids}${authentication}${apiKey}`;
 export const dramaUrl = `${baseUrl}${drama}${authentication}${apiKey}`;
 
+
 export const generateMovieUrl = (id: number) => `${baseUrl}movie/${id}${movieAuth}${apiKey}`;
 export const generateSearchUrl = (query: string) => `${baseUrl}search/movie?query=${query}${authentication}${apiKey}`;
 export const generateCastUrl = (id: number) => `${baseUrl}movie/${id}/credits${movieAuth}${apiKey}`;
@@ -29,6 +30,10 @@ export const generateLoginUrl = () => `${baseUrl}authentication/token/validate_w
 export const generateSessionUrl = () => `${baseUrl}authentication/session/new?api_key=${apiKey}`;
 export const generateUserDetailsUrl = (sessionId: string) => `${baseUrl}account?api_key=${apiKey}&session_id=${sessionId}`;
 export const generateDeleteSessionUrl = () => `${baseUrl}authentication/session?api_key=${apiKey}`;
+// tslint:disable-next-line:max-line-length
+export const generateFavoritesUrl = (sessionId: string) => `${baseUrl}account/{account_id}/favorite/movies?api_key=${apiKey}&session_id=${sessionId}&language=en-US&sort_by=created_at.asc&page=1`;
+
+
 
 
 

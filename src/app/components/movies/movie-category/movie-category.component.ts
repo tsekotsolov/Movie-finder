@@ -1,9 +1,7 @@
 import { Component, OnInit, ViewChild, Input, OnDestroy } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
-
 import { DragScrollComponent } from 'ngx-drag-scroll';
-
-import { MoviesService, LoadingService } from '@services';
+import { MoviesService, LoadingService, UserService } from '@services';
 import { Movie } from '@models';
 
 @Component({
@@ -18,15 +16,24 @@ export class MovieCategoryComponent implements OnInit, OnDestroy {
 
   movies: Array<Movie>;
   getMovies: Observable<any>;
+  getFavorites: Observable<any>;
   categoryName: string;
   loading: boolean;
   movieSubscription: Subscription;
+  userFavorites: Subscription;
 
-  constructor(private moviesService: MoviesService, private emitLoading: LoadingService) {}
+
+
+  constructor(
+    private moviesService: MoviesService,
+    private emitLoading: LoadingService,
+    private userService: UserService
+    ) {}
 
   ngOnInit() {
     this.loading = true;
     this.emitLoading.emitLoading.emit(this.loading);
+    const sessionId = localStorage.getItem('sessionId');
 
     switch (this.type) {
       case 'popular':
@@ -62,9 +69,14 @@ export class MovieCategoryComponent implements OnInit, OnDestroy {
       this.loading = false;
       this.emitLoading.emitLoading.emit(this.loading);
       data.results.length > 0
-        ? (this.movies = data.results)
-        : (this.movies = null);
+        ? this.movies = data.results
+        : this.movies = null;
     });
+
+    if (this.userService.getUserName()) {
+      this.userFavorites = this.userService.getUserFavoriteMovies(sessionId).subscribe(data => console.log(data));
+    }
+
   }
 
   moveLeft() {
@@ -79,6 +91,8 @@ export class MovieCategoryComponent implements OnInit, OnDestroy {
     if (this.movieSubscription) {
       this.movieSubscription.unsubscribe();
     }
+    if (this.userFavorites) {
+      this.userFavorites.unsubscribe();
+    }
   }
-
 }

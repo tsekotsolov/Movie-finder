@@ -2,6 +2,10 @@
   margin-top: 1.3rem;
   position: relative;
 
+  &:last-of-type{
+    margin-bottom: 2.5rem;
+  }
+
   .circle {
     position: absolute;
     top: 55%;
@@ -47,4 +51,3 @@
   text-align: center;
   margin-top: 5rem;
 }
-

@@ -28,5 +28,4 @@ export class MoviesService {
     this.http.get<Movies>(generateSearchUrl(query))
   getMovieCast = (id: number): Observable<any> =>
     this.http.get<any>(generateCastUrl(id))
-
 }
