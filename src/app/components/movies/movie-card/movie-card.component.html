@@ -3,11 +3,11 @@
     <img class="card-img-top" src="{{imageUrl}}" [style.height]="height">
     <div class="user-interaction">
       <div>
-        <i class="material-icons heart">favorite_border</i>
-        <!-- <i class="material-icons">favorite</i> -->
+        <i *ngIf="!isFavorite" class="material-icons heart" (click)="addToFavorites(movie.id)">favorite_border</i>
+        <i *ngIf="isFavorite" class="material-icons heart-full" (click)="removeFromFavorites(movie.id)">favorite</i>
         <i class="material-icons info" routerLink="/movie/{{movie.id}}">info</i>
       </div>
-      <div>
+      <div> 
         <i class="material-icons flip" (click)="toggleFlip()">cached</i>
       </div>
     </div>
@@ -18,8 +18,8 @@
     <p class="card-text card-overview">{{overview}}</p>
     <div class="user-interaction">
       <div>
-        <i class="material-icons heart">favorite_border</i>
-        <!-- <i class="material-icons">favorite</i> -->
+        <i *ngIf="!isFavorite" class="material-icons heart" (click)="addToFavorites(movie.id)">favorite_border</i>
+        <i *ngIf="isFavorite" class="material-icons heart-full" (click)="removeFromFavorites(movie.id)">favorite</i>
         <i class="material-icons info" routerLink="/movie/{{movie.id}}">info</i>
       </div>
       <div>

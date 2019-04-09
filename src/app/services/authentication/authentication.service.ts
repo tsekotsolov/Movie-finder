@@ -83,6 +83,7 @@ export class AuthenticationService implements OnDestroy {
           })
         .catch((err: Kinvey.BaseError) => {
           console.log(err);
+          this.loading.emitLoading.emit(false);
           reject(err.message);
           });
     });

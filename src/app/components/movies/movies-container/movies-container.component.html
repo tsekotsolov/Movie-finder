@@ -1,4 +1,4 @@
-<app-movie-category type="popular"></app-movie-category>
-<app-movie-category type="theaters"></app-movie-category>
-<app-movie-category type="kids"></app-movie-category>
-<app-movie-category type="drama"></app-movie-category>
+<app-movie-category type="popular" *ngIf ="userFavorites" [userFavorites]="userFavorites"></app-movie-category>
+<app-movie-category type="theaters" *ngIf ="userFavorites" [userFavorites]="userFavorites"></app-movie-category>
+<app-movie-category type="kids" *ngIf ="userFavorites"  [userFavorites]="userFavorites"></app-movie-category>
+<app-movie-category type="drama" *ngIf ="userFavorites"  [userFavorites]="userFavorites"></app-movie-category>

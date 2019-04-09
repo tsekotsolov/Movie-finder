@@ -7,7 +7,6 @@ const date = `${year}-${month}-${day}`;
 
 const apiKey = 'c7141429c3455427c3801180a641ad9b';
 const baseUrl = 'https://api.themoviedb.org/3/';
-export const imageBaseUrl = 'http://image.tmdb.org/t/p/w500';
 const popular = 'discover/movie?sort_by=popularity.desc';
 const kids = 'discover/movie?certification_country=US&certification.lte=G&sort_by=popularity.desc';
 const drama = `discover/movie?with_genres=18&primary_release_year=${year}`;
@@ -16,6 +15,7 @@ const authentication = '&api_key=';
 const movieAuth = '?api_key=';
 
 
+export const imageBaseUrl = 'http://image.tmdb.org/t/p/w500';
 export const popularUrl = `${baseUrl}${popular}${authentication}${apiKey}`;
 export const theatersUrl = `${baseUrl}${theaters}${authentication}${apiKey}`;
 export const kidsUrl = `${baseUrl}${kids}${authentication}${apiKey}`;
@@ -32,6 +32,10 @@ export const generateUserDetailsUrl = (sessionId: string) => `${baseUrl}account?
 export const generateDeleteSessionUrl = () => `${baseUrl}authentication/session?api_key=${apiKey}`;
 // tslint:disable-next-line:max-line-length
 export const generateFavoritesUrl = (sessionId: string) => `${baseUrl}account/{account_id}/favorite/movies?api_key=${apiKey}&session_id=${sessionId}&language=en-US&sort_by=created_at.asc&page=1`;
+
+// tslint:disable-next-line:max-line-length
+export const generateAddRemoveFavoritesUrl = (sessionId: string) => `${baseUrl}account/{account_id}/favorite?api_key=${apiKey}&session_id=${sessionId}`;
+
 
 
 

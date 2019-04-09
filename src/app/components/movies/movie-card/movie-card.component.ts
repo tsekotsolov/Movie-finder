@@ -1,33 +1,49 @@
-import { Component, OnInit, Input, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit, Input, ElementRef, ViewChild, OnDestroy } from '@angular/core';
+import { Router } from '@angular/router';
+
 import { Movie } from '@models';
-import { imageBaseUrl } from '@services';
+import { imageBaseUrl, UserService } from '@services';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-movie-card',
   templateUrl: './movie-card.component.html',
   styleUrls: ['./movie-card.component.scss']
 })
-export class MovieCardComponent implements OnInit {
+export class MovieCardComponent implements OnInit, OnDestroy {
   @ViewChild('width') width: ElementRef;
   @Input() movie: Movie;
+  @Input() userFavorites: [];
 
   private height: string;
   private imageUrl: string;
   private isFlipped = false;
   private overview: string;
+  private isFavorite: boolean;
+  private addToFavSubscription: Subscription;
+  private removeFromFavSubscription: Subscription;
+  private sessionId: string;
 
-  constructor() {}
+  constructor(private userService: UserService, private router: Router) {
+    this.sessionId = localStorage.getItem('sessionId');
+  }
 
   ngOnInit() {
     this.movie.overview.length > 300
-      ? this.overview = this.trimOverview(this.movie.overview)
-      : this.overview = this.movie.overview;
+      ? (this.overview = this.trimOverview(this.movie.overview))
+      : (this.overview = this.movie.overview);
 
     const elementWidth = this.width.nativeElement.offsetWidth;
     this.height = `${elementWidth * 1.5}px`;
     this.movie.poster_path
       ? (this.imageUrl = imageBaseUrl + this.movie.poster_path)
       : (this.imageUrl = '../../assets/images/no-image-yet.jpg');
+
+    if (this.userFavorites) {
+      this.userFavorites.forEach(id => id === this.movie.id
+        ? this.isFavorite = true
+        : this.isFavorite);
+    }
   }
 
   onResize() {
@@ -44,4 +60,34 @@ export class MovieCardComponent implements OnInit {
     const index = overview.lastIndexOf(' ');
     return overview.slice(0, index).concat('...');
   }
+
+  addToFavorites(id: number) {
+    if (this.sessionId) {
+      this.addToFavSubscription = this.userService.addMovieToFavorites(this.sessionId, id).subscribe(data => {
+        this.isFavorite = true;
+     });
+    } else {
+      this.router.navigate(['login']);
+    }
+  }
+
+  removeFromFavorites(id: number) {
+    if (this.sessionId) {
+      this.removeFromFavSubscription = this.userService.removeMovieFromFavorites(this.sessionId, id).subscribe(data => {
+        this.isFavorite = false;
+      });
+    } else {
+      this.router.navigate(['login']);
+    }
+  }
+
+  ngOnDestroy() {
+    if (this.addToFavSubscription) {
+      this.addToFavSubscription.unsubscribe();
+    }
+    if (this.removeFromFavSubscription) {
+      this.removeFromFavSubscription.unsubscribe();
+    }
+  }
+
 }

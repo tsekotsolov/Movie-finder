@@ -19,7 +19,6 @@
     position: absolute;
     bottom: -9px;
     left: 0px;
-
   }
 
   &:hover .user-interaction {
@@ -30,6 +29,10 @@
     outline: none;
     margin-left: 7px;
     cursor: pointer;
+  }
+
+  .heart-full{
+    color: #ee5f5b;
   }
 
   .heart:hover {

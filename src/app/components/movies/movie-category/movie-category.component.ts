@@ -3,7 +3,7 @@ import { Observable, Subscription } from 'rxjs';
 import { DragScrollComponent } from 'ngx-drag-scroll';
 import { MoviesService, LoadingService, UserService } from '@services';
 import { Movie } from '@models';
-import { zip } from 'rxjs';
+
 
 @Component({
   selector: 'app-movie-category',
@@ -14,28 +14,23 @@ export class MovieCategoryComponent implements OnInit, OnDestroy {
   @ViewChild('nav', { read: DragScrollComponent }) ds: DragScrollComponent;
   @Input() type: string;
   @Input() query: string;
-  @Input() userFavorite: [];
+  @Input() userFavorites: [];
 
   movies: Array<Movie>;
   getMovies: Observable<any>;
-  getFavorites: Observable<any>;
   categoryName: string;
   loading: boolean;
   movieSubscription: Subscription;
-  userFavorites: Subscription;
-
-
 
   constructor(
     private moviesService: MoviesService,
     private emitLoading: LoadingService,
-    private userService: UserService
   ) { }
 
   ngOnInit() {
     this.loading = true;
     this.emitLoading.emitLoading.emit(this.loading);
-    // const sessionId = localStorage.getItem('sessionId');
+
 
     switch (this.type) {
       case 'popular':
@@ -75,16 +70,7 @@ export class MovieCategoryComponent implements OnInit, OnDestroy {
         : this.movies = null;
     });
 
-    // if (this.userService.getUserName()) {
-    //   this.userFavorites = this.userService.getUserFavoriteMovies(sessionId).subscribe(data => data);
-    // }
-
-    // const a = this.userService.getUserFavoriteMovies(sessionId);
-    // const b  = this.getMovies;
-    // const c = zip(a, b);
-    // const result = c.subscribe(data => console.log(data));
   }
-
 
   moveLeft() {
     this.ds.moveLeft();
