@@ -64,18 +64,18 @@ export class AuthenticationService implements OnDestroy {
     this.loading.emitLoading.emit(true);
     return new Promise((resolve, reject) => {
         Kinvey.User.login(formData.username, formData.password)
-        .then( (d: any) => {
-             console.log(d.authtoken);
+        .then( (response: any) => {
+             localStorage.setItem('kinveyToken', response.authtoken);
              fetch(
               'https://baas.kinvey.com/' + 'user/' + 'kid_Bys2jjSNm' ,
               {
                 method: 'GET',
                 headers: {
-                  'Authorization': 'Kinvey ' + d.authtoken,
+                  Authorization: 'Kinvey ' + response.authtoken,
                   'Content-Type': 'application/json'
                 },
               }
-            ).then(x => x.json()).then(res => console.log(res))
+            ).then(x => x.json()).then(res => console.log(res));
 
              this.createRequest = this.createRequestToken().subscribe(data => {
               this.validateRequest = this.validateRequestToken(data.request_token, formData).subscribe(res => {

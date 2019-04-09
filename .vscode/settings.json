@@ -1,5 +1,6 @@
 {
   "cSpell.words": [
+    "authtoken",
     "default",
     "example",
     "injectable",
@@ -8,6 +9,7 @@
     "module",
     "navbars",
     "noimage",
-    "toastr"
+    "toastr",
+    "tsoloff"
   ]
 }
