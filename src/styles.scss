@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: myFirstFont;
+  src: url('./assets/fonts/ptsans-bold.woff');
+}
+
+body {
+  background-image: url('../src/assets/images/bg-smoke.jpg');
+  background-repeat: repeat;
+  font-family: myFirstFont !important;
+}

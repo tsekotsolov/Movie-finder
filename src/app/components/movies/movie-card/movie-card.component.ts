@@ -19,7 +19,7 @@ export class MovieCardComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    this.movie.overview.length > 500
+    this.movie.overview.length > 300
       ? this.overview = this.trimOverview(this.movie.overview)
       : this.overview = this.movie.overview;
 
@@ -40,7 +40,7 @@ export class MovieCardComponent implements OnInit {
   }
 
   trimOverview(overview: string) {
-    overview = overview.slice(0, 500);
+    overview = overview.slice(0, 300);
     const index = overview.lastIndexOf(' ');
     return overview.slice(0, index).concat('...');
   }

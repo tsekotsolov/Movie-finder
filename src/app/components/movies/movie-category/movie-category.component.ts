@@ -3,6 +3,7 @@ import { Observable, Subscription } from 'rxjs';
 import { DragScrollComponent } from 'ngx-drag-scroll';
 import { MoviesService, LoadingService, UserService } from '@services';
 import { Movie } from '@models';
+import { zip } from 'rxjs';
 
 @Component({
   selector: 'app-movie-category',
@@ -13,6 +14,7 @@ export class MovieCategoryComponent implements OnInit, OnDestroy {
   @ViewChild('nav', { read: DragScrollComponent }) ds: DragScrollComponent;
   @Input() type: string;
   @Input() query: string;
+  @Input() userFavorite: [];
 
   movies: Array<Movie>;
   getMovies: Observable<any>;
@@ -28,12 +30,12 @@ export class MovieCategoryComponent implements OnInit, OnDestroy {
     private moviesService: MoviesService,
     private emitLoading: LoadingService,
     private userService: UserService
-    ) {}
+  ) { }
 
   ngOnInit() {
     this.loading = true;
     this.emitLoading.emitLoading.emit(this.loading);
-    const sessionId = localStorage.getItem('sessionId');
+    // const sessionId = localStorage.getItem('sessionId');
 
     switch (this.type) {
       case 'popular':
@@ -73,11 +75,16 @@ export class MovieCategoryComponent implements OnInit, OnDestroy {
         : this.movies = null;
     });
 
-    if (this.userService.getUserName()) {
-      this.userFavorites = this.userService.getUserFavoriteMovies(sessionId).subscribe(data => console.log(data));
-    }
+    // if (this.userService.getUserName()) {
+    //   this.userFavorites = this.userService.getUserFavoriteMovies(sessionId).subscribe(data => data);
+    // }
 
+    // const a = this.userService.getUserFavoriteMovies(sessionId);
+    // const b  = this.getMovies;
+    // const c = zip(a, b);
+    // const result = c.subscribe(data => console.log(data));
   }
+
 
   moveLeft() {
     this.ds.moveLeft();
@@ -90,9 +97,6 @@ export class MovieCategoryComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     if (this.movieSubscription) {
       this.movieSubscription.unsubscribe();
-    }
-    if (this.userFavorites) {
-      this.userFavorites.unsubscribe();
     }
   }
 }
