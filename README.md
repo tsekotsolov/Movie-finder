@@ -17,10 +17,10 @@
 movies.unibox.bg 
 
 ### Main area
-* Users can view movie details, create lists and add movies to favorites list.
+* Users can view movie categories
 
 ### Logged in User area
-* Logged in Users can view movie details, create lists edit them and add movies to favorites list.
+* Logged in Users can view movie details, create lists, edit them and add movies to favorite's list.
 
 ### Admin area
 * Admins can ban and restore users.
@@ -34,13 +34,11 @@ Once you have Node.js prerequisite installed.
 
 1. Download the source code navigate to the folder where the files are located
 
-2. Open a CMD window there
+2. Open a console there
 
-3. Install all needed packages
+3. Run npm install
 
-4. Run npm install
-
-5. Run ng serve --open
+4. Run ng serve --open
 
 ## Authors
   * **Tseko Tsolov**
