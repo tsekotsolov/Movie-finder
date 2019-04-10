@@ -30,6 +30,7 @@ export const generateLoginUrl = () => `${baseUrl}authentication/token/validate_w
 export const generateSessionUrl = () => `${baseUrl}authentication/session/new?api_key=${apiKey}`;
 export const generateUserDetailsUrl = (sessionId: string) => `${baseUrl}account?api_key=${apiKey}&session_id=${sessionId}`;
 export const generateDeleteSessionUrl = () => `${baseUrl}authentication/session?api_key=${apiKey}`;
+export const generateKinveyUsersUrl = () => `https://baas.kinvey.com/user/kid_Bys2jjSNm`;
 // tslint:disable-next-line:max-line-length
 export const generateFavoritesUrl = (sessionId: string) => `${baseUrl}account/{account_id}/favorite/movies?api_key=${apiKey}&session_id=${sessionId}&language=en-US&sort_by=created_at.asc&page=1`;
 

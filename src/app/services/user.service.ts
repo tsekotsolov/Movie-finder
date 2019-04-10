@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { generateFavoritesUrl, generateAddRemoveFavoritesUrl } from './api.constants';
+import { generateFavoritesUrl, generateAddRemoveFavoritesUrl, generateKinveyUsersUrl } from './api.constants';
 import { Observable } from 'rxjs';
 
 
@@ -27,4 +27,15 @@ export class UserService {
     media_id: movieId,
     favorite: false
   })
+
+  getAllUsers = () => {
+    return this.http.get(generateKinveyUsersUrl(),
+    {
+      headers: {
+        Authorization: 'Kinvey ' + localStorage.getItem('kinveyToken'),
+        'Content-Type': 'application/json'
+      },
+    }
+    );
+  }
 }
