@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { SearchService } from '@services';
 
@@ -9,6 +9,7 @@ import { SearchService } from '@services';
   styleUrls: ['./movie-search.component.scss']
 })
 export class MovieSearchComponent implements OnInit {
+  @Input() userFavorites: [];
 
   subscription: Subscription;
   query: string;

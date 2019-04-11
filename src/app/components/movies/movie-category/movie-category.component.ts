@@ -25,6 +25,7 @@ export class MovieCategoryComponent implements OnInit, OnDestroy {
   constructor(
     private moviesService: MoviesService,
     private emitLoading: LoadingService,
+    private userService: UserService
   ) { }
 
   ngOnInit() {
@@ -57,6 +58,11 @@ export class MovieCategoryComponent implements OnInit, OnDestroy {
         this.getMovies = this.moviesService.findMovies(this.query);
         this.categoryName = 'Search results';
         break;
+
+      case 'favorites':
+      this.getMovies = this.userService.getUserFavoriteMovies(localStorage.getItem('sessionId'));
+      this.categoryName = 'Favorites';
+      break;
 
       default:
         break;

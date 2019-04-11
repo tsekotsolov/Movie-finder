@@ -1,4 +1,15 @@
-<app-movie-category type="popular" *ngIf ="userFavorites" [userFavorites]="userFavorites"></app-movie-category>
-<app-movie-category type="theaters" *ngIf ="userFavorites" [userFavorites]="userFavorites"></app-movie-category>
-<app-movie-category type="kids" *ngIf ="userFavorites"  [userFavorites]="userFavorites"></app-movie-category>
-<app-movie-category type="drama" *ngIf ="userFavorites"  [userFavorites]="userFavorites"></app-movie-category>
+<div *ngIf="route === '/'">
+  <app-movie-category type="popular" *ngIf ="userFavorites" [userFavorites]="userFavorites"></app-movie-category>
+  <app-movie-category type="theaters" *ngIf ="userFavorites" [userFavorites]="userFavorites"></app-movie-category>
+  <app-movie-category type="kids" *ngIf ="userFavorites"  [userFavorites]="userFavorites"></app-movie-category>
+  <app-movie-category type="drama" *ngIf ="userFavorites"  [userFavorites]="userFavorites"></app-movie-category>
+</div>
+
+<div *ngIf="route === '/favorites'">
+  <app-movie-category type="favorites" *ngIf ="userFavorites"  [userFavorites]="userFavorites"></app-movie-category>
+</div>
+
+
+<div *ngIf="route === '/search'">
+  <app-movie-search type="search" *ngIf ="userFavorites"  [userFavorites]="userFavorites"></app-movie-search>
+</div>

@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-md-4 col-12">
       <img class="poster" src="{{imageUrl}}" />
-      <app-percentage [vote]="movie.vote_average"></app-percentage>
+      <app-percentage [value]="movie.vote_average"></app-percentage>
       <a *ngIf="movie.homepage" href="{{movie.homepage}}" target="_blank" class="btn btn-default">Visit
         Movie Website</a>
     </div>

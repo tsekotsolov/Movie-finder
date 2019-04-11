@@ -21,8 +21,10 @@
       <div class="btn-group" role="group">
         <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false"></button>
+
         <div class="dropdown-menu" aria-labelledby="btnGroupDrop1" x-placement="bottom-start"
           style="position: absolute; transform: translate3d(0px, 48px, 0px); top: 0px; left: -105px; will-change: transform;">
+          <a class="dropdown-item" routerLink="/favorites">My Favorite Movies</a>
           <a class="dropdown-item" (click)="logout()">Logout</a>
         </div>
       </div>

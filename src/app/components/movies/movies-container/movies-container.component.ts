@@ -1,4 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Router } from '@angular/router'; 
 import { UserService } from '@services';
 import { Observable, Subscription } from 'rxjs';
 
@@ -11,9 +12,11 @@ export class MoviesContainerComponent implements OnInit, OnDestroy {
   getFavorites: Observable<any>;
   userSubscription: Subscription;
   userFavorites: [];
+  route: string;
 
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService, private router: Router ) {}
   ngOnInit() {
+    this.route = this.router.url;
     const sessionId = localStorage.getItem('sessionId');
     if (sessionId) {
       this.userSubscription = this.userService
