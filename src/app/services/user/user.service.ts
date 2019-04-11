@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { generateFavoritesUrl, generateAddRemoveFavoritesUrl, generateKinveyUsersUrl } from './api.constants';
+import { generateFavoritesUrl, generateAddRemoveFavoritesUrl, generateKinveyUsersUrl } from '../api.constants';
 import { Observable } from 'rxjs';
 
 

@@ -10,7 +10,7 @@ import {
   generateMovieUrl,
   generateSearchUrl,
   generateCastUrl
-} from './api.constants';
+} from '../api.constants';
 
 @Injectable()
 export class MoviesService {

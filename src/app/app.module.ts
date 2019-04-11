@@ -5,11 +5,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 
 import { AppRoutingModule } from './app-routing.module';
-import { AppMoviesModule } from './app-movies.module';
+import { AppMoviesModule } from './modules/app-movies.module';
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './components/shared/navigation/navigation.component';
 import { FooterComponent } from './components/shared/footer/footer.component';
-import { AppAuthenticationModule } from './app-authentication.module';
+import { AppAuthenticationModule } from './modules/app-authentication.module';
 import { SearchComponent } from './components/shared/search/search.component';
 import { LoaderComponent } from './components/ui/loader/loader.component';
 import { LoadingService } from '@services';

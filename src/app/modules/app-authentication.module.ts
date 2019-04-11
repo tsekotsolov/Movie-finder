@@ -2,9 +2,13 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-import { RegisterComponent } from './components/authentication/register/register.component';
-import { LoginComponent } from './components/authentication/login/login.component';
-import { AuthenticationService, UserService, UserGuardService, NotificationsService } from '@services';
+import { RegisterComponent } from 'app/components/authentication/register/register.component';
+import { LoginComponent } from 'app/components/authentication/login/login.component';
+import { 
+  AuthenticationService,
+  UserService,
+  UserGuardService,
+  NotificationsService } from '@services';
 
 
 @NgModule({
