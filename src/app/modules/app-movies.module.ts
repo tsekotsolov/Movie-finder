@@ -9,9 +9,9 @@ import { MovieCardComponent } from '../components/movies/movie-card/movie-card.c
 import { MovieDetailsComponent } from '../components/movies/movie-details/movie-details.component';
 import { MovieSearchComponent } from '../components/movies/movie-search/movie-search.component';
 import { MovieCategoryComponent } from '../components/movies/movie-category/movie-category.component';
-import { MoviesService } from '../services/movies/movies.service';
-import { SearchService } from '../services/search/search.service';
-import { MovieDetailsResolver } from '../services/resolvers/movie-details.resolver';
+import { MoviesService } from '../core/services/movies/movies.service';
+import { SearchService } from '../core/services/search/search.service';
+import { MovieDetailsResolver } from '../core/resolvers/movie-details.resolver';
 import { PercentageComponent } from '../components/ui/percentage/percentage.component';
 import { FormsModule } from '@angular/forms';
 

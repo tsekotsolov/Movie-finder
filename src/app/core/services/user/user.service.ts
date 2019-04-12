@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { generateFavoritesUrl, generateAddRemoveFavoritesUrl, generateKinveyUsersUrl } from '../api.constants';
 import { Observable } from 'rxjs';
+import { IMovies } from '@models';
 
 
 @Injectable()
@@ -11,8 +12,8 @@ export class UserService {
   getUserName = () => {
     return localStorage.getItem('username');
   }
-  getUserFavoriteMovies = (sessionId: string): Observable<any> =>
-   this.http.get<any>(generateFavoritesUrl(sessionId))
+  getUserFavoriteMovies = (sessionId: string): Observable<IMovies> =>
+   this.http.get<IMovies>(generateFavoritesUrl(sessionId))
 
   addMovieToFavorites = (sessionId: string, movieId: number): Observable<any> =>
   this.http.post<any>(generateAddRemoveFavoritesUrl(sessionId), {

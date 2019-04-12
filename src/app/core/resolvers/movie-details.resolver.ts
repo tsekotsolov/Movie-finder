@@ -5,7 +5,7 @@ import {
   ActivatedRouteSnapshot,
   RouterStateSnapshot
 } from '@angular/router';
-import { MoviesService } from '../movies/movies.service';
+import { MoviesService } from '../services/movies/movies.service';
 
 @Injectable()
 export class MovieDetailsResolver implements Resolve<object> {

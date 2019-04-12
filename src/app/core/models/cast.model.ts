@@ -1,4 +1,4 @@
-export interface Cast {
+export interface ICast {
   actorName: string;
   actorImageUrl: string;
 }

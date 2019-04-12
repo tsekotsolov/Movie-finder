@@ -1,4 +1,4 @@
-export class RegisterModel {
+export class IRegisterModel {
   constructor(
     public username: string,
     public password: string,

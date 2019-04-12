@@ -2,11 +2,11 @@ import { Injectable, EventEmitter, OnDestroy } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
+
 import { NotificationsService } from '../notifications/notifications.service';
 import { LoadingService } from '../loading/loading.service';
-import { UserService } from '../user/user.service';
 import { Kinvey } from 'kinvey-angular2-sdk';
-
+import { ILoginForm } from '@models';
 import {
   generateRequestTokenUrl,
   generateLoginUrl,
@@ -22,10 +22,9 @@ export class AuthenticationService implements OnDestroy {
     private router: Router,
     private notifications: NotificationsService,
     private loading: LoadingService,
-    private user: UserService
   ) {}
 
-  emitUserName: EventEmitter<any> = new EventEmitter();
+  emitUserName: EventEmitter<string> = new EventEmitter();
 
   createRequest: Subscription;
   validateRequest: Subscription;
@@ -33,22 +32,22 @@ export class AuthenticationService implements OnDestroy {
   removeSession: Subscription;
 
 
-  private createRequestToken = (): Observable<any> =>
-    this.http.get<any>(generateRequestTokenUrl())
+  private createRequestToken = (): Observable<{request_token: string}> =>
+    this.http.get<{request_token: string}>(generateRequestTokenUrl())
 
-  private validateRequestToken = (requestToken: string, formData: any): Observable<any> =>
-    this.http.post<any>(generateLoginUrl(), {
+  private validateRequestToken = (requestToken: string, formData: ILoginForm): Observable<{request_token: string}> =>
+    this.http.post<{request_token: string}>(generateLoginUrl(), {
       username: formData.username,
       password: formData.password,
       request_token: requestToken
     })
 
-  private createSessionId = (requestToken: string): Observable<any> =>
-    this.http.post<any>(generateSessionUrl(), {
+  private createSessionId = (requestToken: string): Observable<{session_id: string}> =>
+    this.http.post<{session_id: string}>(generateSessionUrl(), {
       request_token: requestToken
     })
 
-  private deleteSession = (): Observable<any> => {
+  private deleteSession = (): Observable<{}> => {
     const options = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
@@ -57,14 +56,14 @@ export class AuthenticationService implements OnDestroy {
         session_id: localStorage.getItem('sessionId')
       }
     };
-    return this.http.delete<any>(generateDeleteSessionUrl(), options);
+    return this.http.delete<{}>(generateDeleteSessionUrl(), options);
   }
 
-  login(formData: any) {
+  login(formData: ILoginForm) {
     this.loading.emitLoading.emit(true);
     return new Promise((resolve, reject) => {
         Kinvey.User.login(formData.username, formData.password)
-        .then( (response: any) => {
+        .then( (response: {authtoken: string}) => {
              localStorage.setItem('kinveyToken', response.authtoken);
              this.createRequest = this.createRequestToken().subscribe(data => {
               this.validateRequest = this.validateRequestToken(data.request_token, formData).subscribe(res => {
@@ -86,6 +85,7 @@ export class AuthenticationService implements OnDestroy {
           console.log(err);
           this.loading.emitLoading.emit(false);
           reject(err.message);
+          this.logout();
           });
     });
   }

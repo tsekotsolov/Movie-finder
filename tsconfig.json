@@ -12,8 +12,8 @@
     "importHelpers": true,
     "target": "es5",
     "paths": {
-      "@services": ["app/services"],
-      "@models": ["models"]
+      "@services": ["app/core/services"],
+      "@models": ["app/core/models"]
     },
     "typeRoots": [
       "node_modules/@types"

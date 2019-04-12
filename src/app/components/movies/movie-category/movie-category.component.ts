@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild, Input, OnDestroy } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 import { DragScrollComponent } from 'ngx-drag-scroll';
 import { MoviesService, LoadingService, UserService } from '@services';
-import { Movie } from '@models';
+import { IMovie, IMovies } from '@models';
 
 
 @Component({
@@ -16,8 +16,8 @@ export class MovieCategoryComponent implements OnInit, OnDestroy {
   @Input() query: string;
   @Input() userFavorites: [];
 
-  movies: Array<Movie>;
-  getMovies: Observable<any>;
+  movies: Array<IMovie>;
+  getMovies: Observable<IMovies>;
   categoryName: string;
   loading: boolean;
   movieSubscription: Subscription;

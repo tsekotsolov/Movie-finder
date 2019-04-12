@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, ElementRef, ViewChild, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { Movie } from '@models';
+import { IMovie } from '@models';
 import { imageBaseUrl, UserService } from '@services';
 import { Subscription } from 'rxjs';
 
@@ -12,14 +12,14 @@ import { Subscription } from 'rxjs';
 })
 export class MovieCardComponent implements OnInit, OnDestroy {
   @ViewChild('width') width: ElementRef;
-  @Input() movie: Movie;
-  @Input() userFavorites: [];
+  @Input() movie: IMovie;
+  @Input() userFavorites: [number];
 
   private height: string;
   private imageUrl: string;
   private isFlipped = false;
   private overview: string;
-  private isFavorite: boolean;
+  private isFavorite = false;
   private addToFavSubscription: Subscription;
   private removeFromFavSubscription: Subscription;
   private sessionId: string;
@@ -40,9 +40,9 @@ export class MovieCardComponent implements OnInit, OnDestroy {
       : (this.imageUrl = '../../assets/images/no-image-yet.jpg');
 
     if (this.userFavorites) {
-      this.userFavorites.forEach(id => id === this.movie.id
-        ? this.isFavorite = true
-        : this.isFavorite);
+      this.userFavorites.includes(this.movie.id)
+      ? this.isFavorite = true
+      : this.isFavorite = false;
     }
   }
 
@@ -63,7 +63,7 @@ export class MovieCardComponent implements OnInit, OnDestroy {
 
   addToFavorites(id: number) {
     if (this.sessionId) {
-      this.addToFavSubscription = this.userService.addMovieToFavorites(this.sessionId, id).subscribe(data => {
+      this.addToFavSubscription = this.userService.addMovieToFavorites(this.sessionId, id).subscribe(() => {
         this.isFavorite = true;
      });
     } else {
@@ -73,7 +73,7 @@ export class MovieCardComponent implements OnInit, OnDestroy {
 
   removeFromFavorites(id: number) {
     if (this.sessionId) {
-      this.removeFromFavSubscription = this.userService.removeMovieFromFavorites(this.sessionId, id).subscribe(data => {
+      this.removeFromFavSubscription = this.userService.removeMovieFromFavorites(this.sessionId, id).subscribe(() => {
         this.isFavorite = false;
       });
     } else {
@@ -89,5 +89,4 @@ export class MovieCardComponent implements OnInit, OnDestroy {
       this.removeFromFavSubscription.unsubscribe();
     }
   }
-
 }

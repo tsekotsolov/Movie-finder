@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthenticationService, NotificationsService } from '@services';
+import { ILoginForm } from '@models';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -12,9 +13,9 @@ export class LoginComponent  {
     private notificationService: NotificationsService
   ) {}
 
-login(formData: any) {
+login(formData: {value: ILoginForm}) {
    this.authenticationService.login(formData.value)
-   .then( _ => {
+   .then( () => {
     this.notificationService.showSuccess('Login Success');
    })
    .catch(err => {

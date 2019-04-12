@@ -1,4 +1,4 @@
-export interface MovieDetails {
+export interface IMovieDetails {
   title: string;
   release_date: string;
   overview: string;

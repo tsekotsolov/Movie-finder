@@ -4,8 +4,8 @@ import { MoviesContainerComponent } from './components/movies/movies-container/m
 import { MovieDetailsComponent } from './components/movies/movie-details/movie-details.component';
 import { RegisterComponent } from './components/authentication/register/register.component';
 import { LoginComponent } from './components/authentication/login/login.component';
-import { MovieDetailsResolver } from './services/resolvers/movie-details.resolver';
-import { UserGuardService } from '@services';
+import { MovieDetailsResolver } from './core/resolvers/movie-details.resolver';
+import { UserGuardService } from './core/guards/user-guard.service';
 
 const routes: Routes = [
   { path: '', component: MoviesContainerComponent },

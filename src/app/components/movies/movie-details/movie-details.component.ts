@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { MovieDetails, Cast } from '@models';
+import { IMovieDetails, ICast } from '@models';
 import { imageBaseUrl } from '@services';
 const image = '../../assets/images/no-image-yet.jpg';
 
@@ -10,10 +10,10 @@ const image = '../../assets/images/no-image-yet.jpg';
   styleUrls: ['./movie-details.component.scss']
 })
 export class MovieDetailsComponent implements OnInit {
-  movie: MovieDetails;
+  movie: IMovieDetails;
   genres: string;
   imageUrl: string;
-  cast: Cast;
+  cast: ICast;
   vote: string;
 
   constructor(private route: ActivatedRoute) {}
@@ -23,13 +23,13 @@ export class MovieDetailsComponent implements OnInit {
     this.vote = this.movie.vote_average * 10 + ',100';
     this.cast = this.route.snapshot.data.movieDetails[1].cast
       .slice(0, 4)
-      .map((actor: any) => {
+      .map((actor: {name: string, profile_path: string}) => {
       return {
         actorName: actor.name,
         actorImageUrl: actor.profile_path ? `${imageBaseUrl}${actor.profile_path}` : image
       };
     });
-    this.genres = this.movie.genres.map((genre: any) => genre.name).join(', ');
+    this.genres = this.movie.genres.map((genre: {name: string}) => genre.name).join(', ');
     this.movie.poster_path
       ? (this.imageUrl = `${imageBaseUrl}${this.movie.poster_path}`)
       : (this.imageUrl = image);
