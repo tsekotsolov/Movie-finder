@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppMoviesModule } from './components/movies/app-movies.module';
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './components/shared/navigation/navigation.component';
+import { HomeComponent } from './components/home/home.component';
 import { FooterComponent } from './components/shared/footer/footer.component';
 import { AppAuthenticationModule } from './components/authentication/app-authentication.module';
 import { SearchComponent } from './components/shared/search/search.component';
@@ -15,13 +16,15 @@ import { LoaderComponent } from './components/ui/loader/loader.component';
 import { LoadingService } from '@services';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
+    HomeComponent,
     SearchComponent,
     LoaderComponent,
-    FooterComponent
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

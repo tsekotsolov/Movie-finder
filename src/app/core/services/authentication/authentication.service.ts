@@ -68,7 +68,7 @@ export class AuthenticationService implements OnDestroy {
              this.createRequest = this.createRequestToken().subscribe(data => {
               this.validateRequest = this.validateRequestToken(data.request_token, formData).subscribe(res => {
                 this.createSession = this.createSessionId(res.request_token).subscribe(sessionData => {
-                    this.router.navigate(['/']);
+                    this.router.navigate(['/movies']);
                     localStorage.setItem('sessionId', sessionData.session_id);
                     localStorage.setItem('username', formData.username);
                     this.emitUserName.emit(formData.username);

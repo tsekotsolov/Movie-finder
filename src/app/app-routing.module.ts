@@ -6,12 +6,14 @@ import { RegisterComponent } from './components/authentication/register/register
 import { LoginComponent } from './components/authentication/login/login.component';
 import { MovieDetailsResolver } from './core/resolvers/movie-details.resolver';
 import { UserGuardService } from './core/guards/user-guard.service';
+import { HomeComponent } from './components/home/home.component';
 
 const routes: Routes = [
-  { path: '', component: MoviesContainerComponent },
-  { path: 'search', component: MoviesContainerComponent },
+  { path: '', component: HomeComponent },
+  { path: 'movies', component: MoviesContainerComponent },
+  { path: 'movies/search', component: MoviesContainerComponent },
   { path: 'movies/favorites', component: MoviesContainerComponent },
-  { path: 'movie/:id',
+  { path: 'movies/movie/:id',
     component: MovieDetailsComponent,
     resolve: {movieDetails: MovieDetailsResolver},
     canActivate: [UserGuardService] },

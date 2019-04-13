@@ -4,7 +4,7 @@
       <!-- <app-movie-card [movie]="movie"></app-movie-card> -->
       <img class="poster" src="{{imageUrl}}" />
       <app-percentage [value]="movie.vote_average"></app-percentage>
-      <a *ngIf="movie.homepage" href="{{movie.homepage}}" target="_blank" class="btn btn-default">Visit
+      <a *ngIf="movie.homepage" href="{{movie.homepage}}" target="_blank" class="btn btn-success">Visit
         Movie Website</a>
     </div>
     <div class="col-md-8 col-12">

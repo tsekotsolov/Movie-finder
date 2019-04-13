@@ -21,9 +21,9 @@ export class SearchComponent  {
 
     this.searchService.passQuery(this.query);
     this.query = '';
-    this.router.navigate(['search']);
-    if (this.router.url === '/search') {
-      this.redirectTo('search');
+    this.router.navigate(['movies/search']);
+    if (this.router.url === '/movies/search') {
+      this.redirectTo('/movies/search');
     }
   }
 }
