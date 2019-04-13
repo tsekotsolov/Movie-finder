@@ -14,7 +14,8 @@ export class MoviesContainerComponent implements OnInit {
   route: string;
   movieIds$: Observable<{}> = of([]);
 
-  constructor(private userService: UserService, private router: Router ) {}
+  constructor(private userService: UserService, private router: Router ) {
+  }
   ngOnInit() {
     this.route = this.router.url;
     const sessionId = localStorage.getItem('sessionId');

@@ -10,7 +10,7 @@ import { UserGuardService } from './core/guards/user-guard.service';
 const routes: Routes = [
   { path: '', component: MoviesContainerComponent },
   { path: 'search', component: MoviesContainerComponent },
-  { path: 'favorites', component: MoviesContainerComponent },
+  { path: 'movies/favorites', component: MoviesContainerComponent },
   { path: 'movie/:id',
     component: MovieDetailsComponent,
     resolve: {movieDetails: MovieDetailsResolver},

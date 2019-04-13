@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 
 import { RegisterComponent } from 'app/components/authentication/register/register.component';
 import { LoginComponent } from 'app/components/authentication/login/login.component';
-import { 
+import {
   AuthenticationService,
   UserService,
   UserGuardService,

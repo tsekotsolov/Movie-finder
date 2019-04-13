@@ -63,9 +63,8 @@ export class MovieCardComponent implements OnInit, OnDestroy {
 
   addToFavorites(id: number) {
     if (this.sessionId) {
-      this.addToFavSubscription = this.userService.addMovieToFavorites(this.sessionId, id).subscribe(() => {
-        this.isFavorite = true;
-     });
+      this.addToFavSubscription = this.userService.addMovieToFavorites(this.sessionId, id)
+        .subscribe(() => this.isFavorite = true);
     } else {
       this.router.navigate(['login']);
     }
@@ -73,9 +72,8 @@ export class MovieCardComponent implements OnInit, OnDestroy {
 
   removeFromFavorites(id: number) {
     if (this.sessionId) {
-      this.removeFromFavSubscription = this.userService.removeMovieFromFavorites(this.sessionId, id).subscribe(() => {
-        this.isFavorite = false;
-      });
+      this.removeFromFavSubscription = this.userService.removeMovieFromFavorites(this.sessionId, id)
+        .subscribe(() => this.isFavorite = false);
     } else {
       this.router.navigate(['login']);
     }
