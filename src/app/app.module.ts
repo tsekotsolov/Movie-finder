@@ -9,7 +9,6 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoadingService } from '@services';
 import { LoaderComponent } from './components/ui/loader/loader.component';
-import { AppAuthenticationModule } from './components/authentication/app-authentication.module';
 
 
 
@@ -24,14 +23,10 @@ import { AppAuthenticationModule } from './components/authentication/app-authent
     AppRoutingModule,
     AppMoviesModule,
     BrowserAnimationsModule,
-    AppAuthenticationModule,
     ToastrModule.forRoot()
   ],
   providers: [
    LoadingService
-  ],
-  exports: [
-    HomeComponent
   ],
   bootstrap: [AppComponent]
 })
