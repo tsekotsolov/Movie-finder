@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AppRoutingModule } from 'app/app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { AppAuthenticationModule } from '../authentication/app-authentication.module';
 import { NavigationComponent } from '../shared/navigation/navigation.component';
@@ -8,6 +7,8 @@ import { SearchComponent } from '../shared/search/search.component';
 import { FooterComponent } from '../shared/footer/footer.component';
 import { SearchService } from '../../core/services/search/search.service';
 import { UserService } from '@services';
+import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,8 +19,9 @@ import { UserService } from '@services';
   imports: [
     CommonModule,
     FormsModule,
-    AppRoutingModule,
-    AppAuthenticationModule
+    RouterModule,
+    AppAuthenticationModule,
+    HttpClientModule,
   ],
   exports: [
     NavigationComponent,

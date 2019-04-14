@@ -10,7 +10,6 @@ import {
   UserGuardService,
   NotificationsService } from '@services';
 
-
 @NgModule({
   declarations: [
     RegisterComponent,

@@ -4,11 +4,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 
 import { AppRoutingModule } from './app-routing.module';
-import { AppMoviesModule } from './components/movies/app-movies.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoadingService } from '@services';
 import { LoaderComponent } from './components/ui/loader/loader.component';
+import { AppSharedModule } from './components/shared/app-shared.module';
 
 
 
@@ -21,8 +21,8 @@ import { LoaderComponent } from './components/ui/loader/loader.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AppMoviesModule,
     BrowserAnimationsModule,
+    AppSharedModule,
     ToastrModule.forRoot()
   ],
   providers: [

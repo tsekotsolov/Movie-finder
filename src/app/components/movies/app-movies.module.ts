@@ -2,9 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { DragScrollModule } from 'ngx-drag-scroll/lib';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule } from '@angular/router';
 
-import { AppRoutingModule } from '../../app-routing.module';
 import { MoviesContainerComponent } from './movies-container/movies-container.component';
 import { MovieCardComponent } from './movie-card/movie-card.component';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
@@ -32,7 +31,7 @@ import { MoviesRoutingModule } from './movies-routing.module';
     DragScrollModule,
     AppSharedModule,
     RouterModule,
-    MoviesRoutingModule
+    MoviesRoutingModule,
   ],
   providers: [
     MoviesService,
