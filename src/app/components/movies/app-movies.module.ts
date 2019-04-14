@@ -10,10 +10,12 @@ import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import { MovieSearchComponent } from './movie-search/movie-search.component';
 import { MovieCategoryComponent } from './movie-category/movie-category.component';
 import { MoviesService } from '../../core/services/movies/movies.service';
-import { SearchService } from '../../core/services/search/search.service';
 import { MovieDetailsResolver } from '../../core/resolvers/movie-details.resolver';
 import { PercentageComponent } from '../ui/percentage/percentage.component';
-import { FormsModule } from '@angular/forms';
+import { AppSharedModule } from '../shared/app-shared.module';
+import { SearchService } from '@services';
+
+
 
 @NgModule({
   declarations: [
@@ -22,19 +24,19 @@ import { FormsModule } from '@angular/forms';
     MovieDetailsComponent,
     MovieSearchComponent,
     MovieCategoryComponent,
-    PercentageComponent
+    PercentageComponent,
   ],
   imports: [
     CommonModule,
     HttpClientModule,
     AppRoutingModule,
     DragScrollModule,
-    FormsModule
+    AppSharedModule
   ],
   providers: [
     MoviesService,
     SearchService,
     MovieDetailsResolver
-  ]
+  ],
 })
 export class AppMoviesModule { }

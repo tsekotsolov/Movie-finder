@@ -1,19 +1,20 @@
-<div *ngIf ="movieIds$ | async as favorites" >
+<app-navigation></app-navigation>
+<div *ngIf="movieIds$ | async as favorites">
+  <div *ngIf="route === '/movies'">
+    <app-movie-category type="popular" [userFavorites]="favorites"></app-movie-category>
+    <app-movie-category type="theaters" [userFavorites]="favorites"></app-movie-category>
+    <app-movie-category type="kids" [userFavorites]="favorites"></app-movie-category>
+    <app-movie-category type="drama" [userFavorites]="favorites"></app-movie-category>
+  </div>
 
-    <div *ngIf="route === '/movies'">
-      <app-movie-category type="popular" [userFavorites]="favorites"></app-movie-category>
-      <app-movie-category type="theaters" [userFavorites]="favorites"></app-movie-category>
-      <app-movie-category type="kids" [userFavorites]="favorites"></app-movie-category>
-      <app-movie-category type="drama" [userFavorites]="favorites"></app-movie-category>
-    </div>
-  
-    <div *ngIf="route === '/movies/favorites'">
-      <app-movie-category type="favorites"  [userFavorites]="favorites"></app-movie-category>
-    </div>
-    
-    <div *ngIf="route === '/movies/search'">
-    <app-movie-search type="search"  [userFavorites]="favorites"></app-movie-search>
-    </div>
+  <div *ngIf="route === '/movies/favorites'">
+    <app-movie-category type="favorites" [userFavorites]="favorites"></app-movie-category>
+  </div>
 
+  <div *ngIf="route === '/movies/search'">
+    <app-movie-search type="search" [userFavorites]="favorites"></app-movie-search>
+  </div>
 </div>
+<app-footer></app-footer>
+
 
