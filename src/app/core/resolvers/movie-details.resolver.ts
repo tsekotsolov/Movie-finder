@@ -13,7 +13,6 @@ export class MovieDetailsResolver implements Resolve<object> {
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     const id = route.params.id;
-    console.log(id);
     const movie = this.moviesService.getMovie(id);
     const cast = this.moviesService.getMovieCast(id);
     return forkJoin(movie, cast);

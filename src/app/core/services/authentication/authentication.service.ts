@@ -63,8 +63,12 @@ export class AuthenticationService implements OnDestroy {
     this.loading.emitLoading.emit(true);
     return new Promise((resolve, reject) => {
         Kinvey.User.login(formData.username, formData.password)
-        .then( (response: {authtoken: string}) => {
+        .then( (response: any) => {
              localStorage.setItem('kinveyToken', response.authtoken);
+             const role = response.data._kmd.roles;
+             if (role) {
+              localStorage.setItem('roleId', response.data._kmd.roles[0].roleId);
+             }
              this.createRequest = this.createRequestToken().subscribe(data => {
               this.validateRequest = this.validateRequestToken(data.request_token, formData).subscribe(res => {
                 this.createSession = this.createSessionId(res.request_token).subscribe(sessionData => {
@@ -77,9 +81,13 @@ export class AuthenticationService implements OnDestroy {
                 });
               }, err => {
                 console.log(err);
+                this.loading.emitLoading.emit(false);
                 reject(err.statusText);
               });
-            }, err => console.log(err));
+            }, err => {
+              console.log(err);
+              this.loading.emitLoading.emit(false);
+            });
           })
         .catch((err: Kinvey.BaseError) => {
           console.log(err);
@@ -94,6 +102,8 @@ export class AuthenticationService implements OnDestroy {
     this.deleteSession().subscribe(() => {
       localStorage.removeItem('sessionId');
       localStorage.removeItem('username');
+      localStorage.removeItem('roleId');
+      localStorage.removeItem('kinveyToken');
       this.notifications.showSuccess('Logout Success');
       this.emitUserName.emit('');
       this.router.navigate(['/']);
@@ -107,6 +117,7 @@ export class AuthenticationService implements OnDestroy {
     })
 
     isAuthenticated = () => localStorage.getItem('sessionId') && true;
+    isAdmin = () => localStorage.getItem('roleId') && true;
 
     ngOnDestroy() {
       this.createRequest.unsubscribe();

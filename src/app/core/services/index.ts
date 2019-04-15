@@ -5,5 +5,6 @@ export * from './authentication/authentication.service';
 export * from './user/user.service';
 export * from '../resolvers/movie-details.resolver';
 export * from '../guards/user-guard.service';
+export * from '../guards/admin-guard.service';
 export * from './notifications/notifications.service';
 export * from './loading/loading.service';

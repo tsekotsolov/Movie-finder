@@ -8,22 +8,35 @@ import {
   AuthenticationService,
   UserService,
   UserGuardService,
-  NotificationsService } from '@services';
+  NotificationsService, 
+  AdminGuardService} from '@services';
+import { NavigationComponent } from '../shared/navigation/navigation.component';
+import { SearchComponent } from '../shared/search/search.component';
+import { RouterModule } from '@angular/router';
+
 
 @NgModule({
   declarations: [
     RegisterComponent,
     LoginComponent,
+    NavigationComponent,
+    SearchComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
+    RouterModule
   ],
   providers: [
     AuthenticationService,
     UserService,
     UserGuardService,
+    AdminGuardService,
     NotificationsService
   ],
+  exports: [
+    NavigationComponent,
+    SearchComponent,
+  ]
 })
 export class AppAuthenticationModule { }

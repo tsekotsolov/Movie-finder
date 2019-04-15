@@ -1,0 +1,10 @@
+<app-navigation></app-navigation>
+<div *ngFor="let user of users$ | async">
+  <p>{{user._id}}</p>
+  <p>{{user.avatar}}</p>
+  <p>{{user.username}}</p>
+  <p>{{user.mail}}</p>
+  <p>{{user._kmd.ect}}</p>
+  <br>
+</div>
+<app-footer></app-footer>

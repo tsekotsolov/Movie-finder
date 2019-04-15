@@ -13,8 +13,10 @@ import { MoviesService } from '../../core/services/movies/movies.service';
 import { MovieDetailsResolver } from '../../core/resolvers/movie-details.resolver';
 import { PercentageComponent } from '../ui/percentage/percentage.component';
 import { AppSharedModule } from '../shared/app-shared.module';
-import { SearchService } from '@services';
+import { SearchService, AuthenticationService } from '@services';
 import { MoviesRoutingModule } from './movies-routing.module';
+import { AppAuthenticationModule } from '../authentication/app-authentication.module';
+import { UsersListComponent } from '../users-list/users-list.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,7 @@ import { MoviesRoutingModule } from './movies-routing.module';
     MovieSearchComponent,
     MovieCategoryComponent,
     PercentageComponent,
+    UsersListComponent,
   ],
   imports: [
     CommonModule,
@@ -32,11 +35,12 @@ import { MoviesRoutingModule } from './movies-routing.module';
     AppSharedModule,
     RouterModule,
     MoviesRoutingModule,
+    AppAuthenticationModule
   ],
   providers: [
     MoviesService,
     SearchService,
-    MovieDetailsResolver
+    MovieDetailsResolver,
   ],
 })
 export class AppMoviesModule { }
