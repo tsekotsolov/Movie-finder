@@ -31,6 +31,9 @@ export const generateSessionUrl = () => `${baseUrl}authentication/session/new?ap
 export const generateUserDetailsUrl = (sessionId: string) => `${baseUrl}account?api_key=${apiKey}&session_id=${sessionId}`;
 export const generateDeleteSessionUrl = () => `${baseUrl}authentication/session?api_key=${apiKey}`;
 export const generateKinveyUsersUrl = () => `https://baas.kinvey.com/user/kid_Bys2jjSNm`;
+export const generateBanUserUrl = (id: any) =>  `https://baas.kinvey.com/user/kid_Bys2jjSNm/${id}?soft=true`;
+export const generateRestoreUserUrl = (id: any) =>  `https://baas.kinvey.com/user/kid_Bys2jjSNm/${id}/_restore`;
+
 // tslint:disable-next-line:max-line-length
 export const generateFavoritesUrl = (sessionId: string) => `${baseUrl}account/{account_id}/favorite/movies?api_key=${apiKey}&session_id=${sessionId}&language=en-US&sort_by=created_at.asc&page=1`;
 
@@ -38,7 +41,9 @@ export const generateFavoritesUrl = (sessionId: string) => `${baseUrl}account/{a
 export const generateAddRemoveFavoritesUrl = (sessionId: string) => `${baseUrl}account/{account_id}/favorite?api_key=${apiKey}&session_id=${sessionId}`;
 
 
+// https://baas.kinvey.com/user/kid_Bys2jjSNm/5bd40c8dbe06d934ceea92ed/_restore - works
 
+// https://baas.kinvey.com/user/kid_Bys2jjSNm/5bd40c8dbe06d934ceea92ed/_restore - does not work
 
 
 

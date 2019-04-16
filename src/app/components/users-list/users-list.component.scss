@@ -1,0 +1,37 @@
+.wrapper {
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.banned {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: rgba(226, 52, 0, 0.7);
+
+  p {
+    font-size: 2rem;
+    transform: rotate(-30deg);
+  }
+}
+
+.cont:hover .banned {
+  opacity: 1;
+}
+
+.cont {
+  position: relative;
+  width: 100%;
+  padding: 0;
+  margin: 0.5%;
+}
+
+.cont .banned {
+  opacity: 1
+}

@@ -17,4 +17,14 @@ export class UsersListComponent implements OnInit {
     this.users$ = this.userService.getAllUsers();
   }
 
+  banUser = (id: string) => {
+    this.userService.banUser(id).subscribe((data: any) => console.log(data));
+  }
+
+  restoreUser = (id: string) => {
+    console.log(id);
+    this.userService.restoreUser(id).subscribe((data: any) => console.log(data));
+  }
+
+
 }

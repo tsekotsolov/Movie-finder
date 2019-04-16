@@ -1,6 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { generateFavoritesUrl, generateAddRemoveFavoritesUrl, generateKinveyUsersUrl } from '../api.constants';
+import { 
+  generateFavoritesUrl,
+  generateAddRemoveFavoritesUrl,
+  generateKinveyUsersUrl,
+  generateBanUserUrl,
+  generateRestoreUserUrl } from '../api.constants';
 import { Observable } from 'rxjs';
 import { IMovies } from '@models';
 
@@ -37,6 +42,24 @@ export class UserService {
         'Content-Type': 'application/json'
       },
     }
-    );
+     );
+  }
+
+  banUser = (id: string) => {
+    return this.http.delete<any>(generateBanUserUrl(id), {
+        headers: {
+          Authorization: 'Kinvey ' + localStorage.getItem('kinveyToken'),
+        },
+      }
+       );
+  }
+
+  restoreUser = (id: string) => {
+    return this.http.post<any>(generateRestoreUserUrl(id), null, {
+        headers: {
+           Authorization: 'Basic ' + btoa('kid_Bys2jjSNm' + ':' + '3cb812ca74604fe6a350cea44a2a0cef'),
+        },
+    }
+     );
   }
 }
