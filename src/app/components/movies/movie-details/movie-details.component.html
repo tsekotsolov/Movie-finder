@@ -1,9 +1,10 @@
+<app-navigation></app-navigation>
 <div class="movie-wrapper container">
   <div class="row">
     <div class="col-md-4 col-12">
       <img class="poster" src="{{imageUrl}}" />
-      <app-percentage [vote]="movie.vote_average"></app-percentage>
-      <a *ngIf="movie.homepage" href="{{movie.homepage}}" target="_blank" class="btn btn-default">Visit
+      <app-percentage [value]="movie.vote_average"></app-percentage>
+      <a *ngIf="movie.homepage" href="{{movie.homepage}}" target="_blank" class="btn btn-success">Visit
         Movie Website</a>
     </div>
     <div class="col-md-8 col-12">
@@ -28,3 +29,4 @@
         </li>
       </ul>
     </div>
+    <app-footer></app-footer>

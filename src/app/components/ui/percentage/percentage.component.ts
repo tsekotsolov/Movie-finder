@@ -9,13 +9,13 @@ import { Component, Input, OnInit } from '@angular/core';
 
 export class PercentageComponent implements OnInit {
 
-  @Input() vote: number;
-  voteAttr: string;
+  @Input() value: number;
+  valueAttr: string;
 
   constructor() {}
 
   ngOnInit() {
-    this.voteAttr = this.vote * 10 + ',100';
+    this.valueAttr = this.value * 10 + ',100';
   }
 
 

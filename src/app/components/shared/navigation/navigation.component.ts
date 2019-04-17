@@ -8,6 +8,7 @@ import {AuthenticationService, UserService } from '@services';
 })
 export class NavigationComponent {
   username: string;
+  isAdmin: boolean;
 
   constructor(
     private authenticationService: AuthenticationService,
@@ -15,6 +16,7 @@ export class NavigationComponent {
   ) {
     this.username = this.userService.getUserName();
     this.authenticationService.emitUserName.subscribe((name: string) => this.username = name);
+    this.isAdmin = this.authenticationService.isAdmin();
   }
 
   logout = () => {

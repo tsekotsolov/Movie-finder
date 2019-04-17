@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { AuthenticationService } from '@services';
+import { AuthenticationService, NotificationsService } from '@services';
+import { ILoginForm } from '@models';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -9,9 +10,16 @@ export class LoginComponent  {
 
   constructor(
     private authenticationService: AuthenticationService,
+    private notificationService: NotificationsService
   ) {}
 
- login(formData: any) {
-    this.authenticationService.login(formData);
+login(formData: {value: ILoginForm}) {
+   this.authenticationService.login(formData.value)
+   .then( () => {
+    this.notificationService.showSuccess('Login Success');
+   })
+   .catch(err => {
+    this.notificationService.showFailure(err);
+   });
   }
 }

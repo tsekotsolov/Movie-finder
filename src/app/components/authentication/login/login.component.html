@@ -1,8 +1,8 @@
+<app-navigation></app-navigation>
 <div class="container">
   <h1>Login Form</h1>
   <form #loginForm="ngForm" (submit)="login(loginForm)">
-    <!-- {{loginForm.value | json}} -->
-    <div class="form-group has-danger">
+    <div class="form-group">
       <label for="username">Username</label>
       <input type="text" class="form-control" id="username" name="username"
         [class.is-invalid]="loginForm.controls?.username?.touched&&loginForm.controls?.username?.errors?.required "

@@ -1,0 +1,8 @@
+<app-navigation></app-navigation>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3 col-sm-6 col-12 wrapper" *ngFor="let user of users$ | async">
+      <app-user-card [user]="user"></app-user-card>
+    </div>
+  </div>
+<app-footer></app-footer>

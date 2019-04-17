@@ -3,7 +3,7 @@
   <div class="row">
     <drag-scroll class="container" #nav>
       <div *ngFor="let movie of movies" drag-scroll-item class="col-md-3 col-sm-6 col-12">
-        <app-movie-card [movie]="movie"></app-movie-card>
+        <app-movie-card [movie]="movie" [userFavorites]="userFavorites"></app-movie-card>
       </div>
     </drag-scroll>
     <div class="circle circle-right" (click)="moveRight()">
@@ -15,4 +15,4 @@
   </div>
 </div>
 
-<h3 *ngIf="!movies && !loading" class="text-danger error">No results matched your search criteria</h3>
+<h3 *ngIf="!movies && !loading" class="text-danger error">No results found</h3>

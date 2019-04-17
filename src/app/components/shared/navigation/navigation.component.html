@@ -1,12 +1,12 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <a class="navbar-brand" routerLink="/">Movie Finder</a>
+  <a class="navbar-brand" routerLink="/movies">Movie Finder</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
     aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarColor01">
-    <app-search></app-search>
+    <app-search *ngIf="username"></app-search>
     <ul class="navbar-nav">
       <li class="nav-item">
         <a class="nav-link" routerLink="/register" *ngIf="!username">Register <span class="sr-only">(current)</span></a>
@@ -21,8 +21,11 @@
       <div class="btn-group" role="group">
         <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false"></button>
+
         <div class="dropdown-menu" aria-labelledby="btnGroupDrop1" x-placement="bottom-start"
           style="position: absolute; transform: translate3d(0px, 48px, 0px); top: 0px; left: -105px; will-change: transform;">
+          <a class="dropdown-item" routerLink="/movies/favorites">My Favorite Movies</a>
+          <a class="dropdown-item" routerLink="/movies/admin/users-list" *ngIf="isAdmin">App Users</a>
           <a class="dropdown-item" (click)="logout()">Logout</a>
         </div>
       </div>

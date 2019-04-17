@@ -1,15 +1,30 @@
-
-  <div #width class="card" [ngClass]="isFlipped && 'is-flipped' " [style.height]="height" (window:resize)="onResize()" (click)="toggleFlip()">
-      <div class="card__face card__face--front">
-          <img class="card-img-top" src="{{imageUrl}}" [style.height]="height">
+<div #width class="card" [ngClass]="isFlipped && 'is-flipped' " [style.height]="height" (window:resize)="onResize()">
+  <div class="card__face card__face--front">
+    <img class="card-img-top" src="{{imageUrl}}" [style.height]="height">
+    <div class="user-interaction">
+      <div>
+        <i *ngIf="!isFavorite" class="material-icons heart" (click)="addToFavorites(movie.id)">favorite_border</i>
+        <i *ngIf="isFavorite" class="material-icons heart-full" (click)="removeFromFavorites(movie.id)">favorite</i>
+        <i class="material-icons info" routerLink="/movies/movie/{{movie.id}}">info</i>
       </div>
-      <div class="card__face card__face--back">
-         
-              <h6 class="card-title">{{movie.title}}</h6>
-              <p class="card-text">{{movie.release_date | date:'mediumDate'}}</p>
-              <p class="card-text card-overview">{{overview}}</p>
-              <button routerLink="/movie/{{movie.id}}" class="btn btn-outline-success">Details</button>
-          
+      <div> 
+        <i class="material-icons flip" (click)="toggleFlip()">cached</i>
       </div>
+    </div>
   </div>
-
+  <div class="card__face card__face--back">
+    <h6 class="card-title">{{movie.title}}</h6>
+    <p class="card-text">{{movie.release_date | date:'mediumDate'}}</p>
+    <p class="card-text card-overview">{{overview}}</p>
+    <div class="user-interaction">
+      <div>
+        <i *ngIf="!isFavorite" class="material-icons heart" (click)="addToFavorites(movie.id)">favorite_border</i>
+        <i *ngIf="isFavorite" class="material-icons heart-full" (click)="removeFromFavorites(movie.id)">favorite</i>
+        <i class="material-icons info" routerLink="/movies/movie/{{movie.id}}">info</i>
+      </div>
+      <div>
+        <i class="material-icons flip" (click)="toggleFlip()">cached</i>
+      </div>
+    </div>
+  </div>
+</div>

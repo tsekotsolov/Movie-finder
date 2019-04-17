@@ -1,0 +1,18 @@
+<div class="card">
+  <div class="cont">
+    <img class="card-img-top" src="{{user.avatar}}" alt="Card image cap">
+    <div class='banned' *ngIf="isBanned">
+      <div class='text'>
+        <p>BANNED</p>
+      </div>
+    </div>
+  </div>
+  <div class="card-body">
+    <p class="card-text">{{user.username}}</p>
+    <p class="card-text" *ngIf="user.mail">{{user.mail}}</p>
+    <p class="card-text" *ngIf="!user.mail">No email provided</p>
+    <p class="card-text">Member since: {{user._kmd.ect.slice(0,10)}}</p>
+    <a class="btn btn-primary" *ngIf="!isBanned" (click)="banUser(user._id)">Ban User</a>
+    <a class="btn btn-primary" *ngIf="isBanned" (click)="restoreUser(user._id)">Restore User</a>
+  </div>
+</div>
