@@ -10,6 +10,7 @@ import { UserService } from '@services';
 export class UsersListComponent implements OnInit {
 
   users$: Observable<{}> = of([]);
+  isBanned: boolean;
 
   constructor(private userService: UserService) { }
 
@@ -19,12 +20,15 @@ export class UsersListComponent implements OnInit {
 
   banUser = (id: string) => {
     this.userService.banUser(id).subscribe((data: any) => console.log(data));
+    this.isBanned = true;
   }
 
   restoreUser = (id: string) => {
-    console.log(id);
     this.userService.restoreUser(id).subscribe((data: any) => console.log(data));
+    this.isBanned = false;
   }
+
+
 
 
 }

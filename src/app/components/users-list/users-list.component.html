@@ -15,7 +15,7 @@
           <p class="card-text">{{user.username}}</p>
           <p class="card-text" *ngIf="user.mail">{{user.mail}}</p>
           <p class="card-text" *ngIf="!user.mail">No email provided</p>
-          <p class="card-text">Member since:{{user._kmd.ect.slice(0,10)}}</p>
+          <p class="card-text">Member since: {{user._kmd.ect.slice(0,10)}}</p>
           <a class="btn btn-primary" *ngIf="!user._kmd.status" (click)="banUser(user._id)">Ban User</a>
           <a class="btn btn-primary" *ngIf="user._kmd.status" (click)="restoreUser(user._id)">Restore User</a>
         </div>
