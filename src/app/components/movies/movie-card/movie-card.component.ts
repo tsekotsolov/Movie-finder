@@ -15,14 +15,14 @@ export class MovieCardComponent implements OnInit, OnDestroy {
   @Input() movie: IMovie;
   @Input() userFavorites: [number];
 
-  private height: string;
-  private imageUrl: string;
-  private isFlipped = false;
-  private overview: string;
-  private isFavorite = false;
-  private addToFavSubscription: Subscription;
-  private removeFromFavSubscription: Subscription;
-  private sessionId: string;
+  height: string;
+  imageUrl: string;
+  isFlipped = false;
+  overview: string;
+  isFavorite = false;
+  addToFavSubscription: Subscription;
+  removeFromFavSubscription: Subscription;
+  sessionId: string;
 
   constructor(private userService: UserService, private router: Router) {
     this.sessionId = localStorage.getItem('sessionId');

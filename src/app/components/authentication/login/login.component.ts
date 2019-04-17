@@ -8,6 +8,9 @@ import { ILoginForm } from '@models';
 })
 export class LoginComponent  {
 
+  username: string;
+  password: string;
+
   constructor(
     private authenticationService: AuthenticationService,
     private notificationService: NotificationsService

@@ -6,4 +6,5 @@ export interface IMovieDetails {
   id: number;
   poster_path: string;
   vote_average: number;
+  homepage: string;
 }

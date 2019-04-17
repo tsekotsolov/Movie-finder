@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService, NotificationsService } from '@services';
 
@@ -8,16 +8,17 @@ import { AuthenticationService, NotificationsService } from '@services';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent {
+
+  username: string;
+  password: string;
+  confirmPassword: string;
+  email: string;
 
   constructor(
     private authenticationService: AuthenticationService,
     private notificationService: NotificationsService,
     private router: Router) { }
-
-  ngOnInit() {
-
-  }
 
   register(formData: {value: any}) {
     this.authenticationService.register(formData.value).then( () => {

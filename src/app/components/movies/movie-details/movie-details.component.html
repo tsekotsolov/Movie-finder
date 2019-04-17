@@ -13,7 +13,7 @@
         <li class="list-group-item">Genres: <span>{{genres}} </span></li>
         <li class="list-group-item">Release Date: {{movie.release_date | date:'mediumDate'}}</li>
         <li class="list-group-item" *ngIf="movie.overview">{{movie.overview}}</li>
-        <li class="list-group-item" *ngIf="cast.length">
+        <li class="list-group-item" *ngIf="cast">
           <div class="container">
             <div class="row">
               <div *ngFor="let actor of cast" class="col-md-3">

@@ -17,7 +17,7 @@ export class SearchComponent  {
     this.router.navigateByUrl('/', {skipLocationChange: true}).then(() =>
     this.router.navigate([uri])); }
 
-  search() {
+  search(event: any) {
 
     this.searchService.passQuery(this.query);
     this.query = '';
