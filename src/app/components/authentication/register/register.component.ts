@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthenticationService, NotificationsService } from '@services';
 
 
@@ -9,8 +10,10 @@ import { AuthenticationService, NotificationsService } from '@services';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(private authenticationService: AuthenticationService,
-    private notificationService: NotificationsService) { }
+  constructor(
+    private authenticationService: AuthenticationService,
+    private notificationService: NotificationsService,
+    private router: Router) { }
 
   ngOnInit() {
 
@@ -19,6 +22,7 @@ export class RegisterComponent implements OnInit {
   register(formData: {value: any}) {
     this.authenticationService.register(formData.value).then( () => {
       this.notificationService.showSuccess('Register Success');
+      this.router.navigate(['/login']);
      })
      .catch(err => {
       this.notificationService.showFailure(err);
