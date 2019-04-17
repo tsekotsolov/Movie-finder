@@ -16,7 +16,8 @@ import { AppSharedModule } from '../shared/app-shared.module';
 import { SearchService, AuthenticationService } from '@services';
 import { MoviesRoutingModule } from './movies-routing.module';
 import { AppAuthenticationModule } from '../authentication/app-authentication.module';
-import { UsersListComponent } from '../users-list/users-list.component';
+import { UsersListComponent } from '../admin/users-list/users-list.component';
+import { UserCardComponent } from '../admin/user-card/user-card.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { UsersListComponent } from '../users-list/users-list.component';
     MovieCategoryComponent,
     PercentageComponent,
     UsersListComponent,
+    UserCardComponent,
   ],
   imports: [
     CommonModule,

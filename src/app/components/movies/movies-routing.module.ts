@@ -3,7 +3,7 @@ import { Route, RouterModule } from '@angular/router';
 import { MoviesContainerComponent } from './movies-container/movies-container.component';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import { MovieDetailsResolver, UserGuardService, AdminGuardService } from '@services';
-import { UsersListComponent } from '../users-list/users-list.component';
+import { UsersListComponent } from '../admin/users-list/users-list.component';
 
 const movieRoutes: Route[] = [
   { path: '', component: MoviesContainerComponent },

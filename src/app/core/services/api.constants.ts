@@ -41,10 +41,5 @@ export const generateFavoritesUrl = (sessionId: string) => `${baseUrl}account/{a
 export const generateAddRemoveFavoritesUrl = (sessionId: string) => `${baseUrl}account/{account_id}/favorite?api_key=${apiKey}&session_id=${sessionId}`;
 
 
-// https://baas.kinvey.com/user/kid_Bys2jjSNm/5bd40c8dbe06d934ceea92ed/_restore - works
-
-// https://baas.kinvey.com/user/kid_Bys2jjSNm/5bd40c8dbe06d934ceea92ed/_restore - does not work
-
-
 
 

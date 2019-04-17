@@ -13,6 +13,7 @@ import {
   generateSessionUrl,
   generateDeleteSessionUrl
 } from '../api.constants';
+import { resolveComponentResources } from '@angular/core/src/metadata/resource_loading';
 
 
 @Injectable()
@@ -93,9 +94,28 @@ export class AuthenticationService implements OnDestroy {
           console.log(err);
           this.loading.emitLoading.emit(false);
           reject(err.message);
-          this.logout();
           });
     });
+  }
+
+  register(formData: any) {
+
+    return new Promise ((resolve, reject) => {
+      Kinvey.User.signup({
+        username: formData.username,
+        password: formData.passwords.password,
+        mail: formData.email
+      })
+        .then((user: Kinvey.User) => {
+          this.router.navigate(['/']);
+          resolve();
+        }).catch((error: Kinvey.BaseError) => {
+          reject(error.message);
+          console.log(error);
+        });
+    });
+
+
   }
 
   logout = () =>

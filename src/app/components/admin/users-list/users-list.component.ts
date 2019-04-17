@@ -10,25 +10,11 @@ import { UserService } from '@services';
 export class UsersListComponent implements OnInit {
 
   users$: Observable<{}> = of([]);
-  isBanned: boolean;
 
   constructor(private userService: UserService) { }
 
   ngOnInit() {
     this.users$ = this.userService.getAllUsers();
   }
-
-  banUser = (id: string) => {
-    this.userService.banUser(id).subscribe((data: any) => console.log(data));
-    this.isBanned = true;
-  }
-
-  restoreUser = (id: string) => {
-    this.userService.restoreUser(id).subscribe((data: any) => console.log(data));
-    this.isBanned = false;
-  }
-
-
-
 
 }

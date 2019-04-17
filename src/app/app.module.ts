@@ -10,11 +10,12 @@ import { LoadingService } from '@services';
 import { LoaderComponent } from './components/ui/loader/loader.component';
 import { AppSharedModule } from './components/shared/app-shared.module';
 
+
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    LoaderComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,

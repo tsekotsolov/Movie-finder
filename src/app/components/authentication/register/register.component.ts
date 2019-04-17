@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthenticationService, NotificationsService } from '@services';
+
 
 @Component({
   selector: 'app-register',
@@ -7,13 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor() { }
+  constructor(private authenticationService: AuthenticationService,
+    private notificationService: NotificationsService) { }
 
   ngOnInit() {
+
   }
 
   register(formData: {value: any}) {
-    console.log(formData.value);
+    this.authenticationService.register(formData.value).then( () => {
+      this.notificationService.showSuccess('Register Success');
+     })
+     .catch(err => {
+      this.notificationService.showFailure(err);
+     });
  }
 
 }
