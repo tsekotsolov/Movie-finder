@@ -37,7 +37,7 @@ export class MovieCardComponent implements OnInit, OnDestroy {
     this.height = `${elementWidth * 1.5}px`;
     this.movie.poster_path
       ? (this.imageUrl = imageBaseUrl + this.movie.poster_path)
-      : (this.imageUrl = '../../assets/images/no-image-yet.jpg');
+      : (this.imageUrl = 'https://res.cloudinary.com/tsekotsolov/image/upload/v1555588508/no-image-yet.jpg');
 
     if (this.userFavorites) {
       this.userFavorites.includes(this.movie.id)

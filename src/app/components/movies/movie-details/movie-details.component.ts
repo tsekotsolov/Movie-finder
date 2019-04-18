@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { IMovieDetails, ICast } from '@models';
 import { imageBaseUrl } from '@services';
-const image = '../../assets/images/no-image-yet.jpg';
+const image = 'https://res.cloudinary.com/tsekotsolov/image/upload/v1555588508/no-image-yet.jpg';
 
 @Component({
   selector: 'app-movie-details',
