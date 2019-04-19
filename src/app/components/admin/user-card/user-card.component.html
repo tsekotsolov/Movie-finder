@@ -1,6 +1,6 @@
 <div class="card">
   <div class="cont">
-    <img class="card-img-top" src="{{user.avatar}}" alt="Card image cap">
+    <img class="card-img-top" src="{{user.avatar || avatar}}" alt="Card image cap">
     <div class='banned' *ngIf="isBanned">
       <div class='text'>
         <p>BANNED</p>

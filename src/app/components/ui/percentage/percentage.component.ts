@@ -17,6 +17,4 @@ export class PercentageComponent implements OnInit {
   ngOnInit() {
     this.valueAttr = this.value * 10 + ',100';
   }
-
-
 }

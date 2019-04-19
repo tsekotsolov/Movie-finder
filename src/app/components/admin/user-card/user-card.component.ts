@@ -11,8 +11,9 @@ export class UserCardComponent implements OnInit {
 
   @Input() user: IUser;
   isBanned: boolean;
+  avatar = 'https://res.cloudinary.com/tsekotsolov/image/upload/v1532975416/band/no_avatar.png';
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService) {}
 
   ngOnInit() {
     this.user._kmd.status
